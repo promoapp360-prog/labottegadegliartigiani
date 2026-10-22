@@ -29,6 +29,8 @@ window.SITE = {
   email: "mail@labottegadegliartigiani.it",
   address: "Via Giuseppe Compagnoni 8, 20129 Milano MI",
   piva: "11585440966",
+  company: "BIGPI S.r.l. a socio unico",
+  legalSeat: "Via Gobetti 22, 20072 Pieve Emanuele (MI)",
   privacyUrl: "/privacy.html",
   leadEmail: "mail@labottegadegliartigiani.it", // dove arrivano i lead (FormSubmit: al 1° invio arriva una mail di attivazione da confermare)
   thankYouUrl: "/grazie.html",
@@ -83,7 +85,7 @@ gtag('set','ads_data_redaction',true);
 (function(){var o=location.origin&&location.origin!=='null'?location.origin:'';if(!o)return;
 var l=document.createElement('link');l.rel='canonical';l.href=o+'/';document.head.appendChild(l);
 var og=document.querySelector('meta[property="og:image"]');if(og)og.content=o+'/images/hero.jpg';
-var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"La Bottega degli Artigiani","url":"__ORIGIN__/","telephone":"+39 02 4549 3533","email":"mail@labottegadegliartigiani.it","image":"__ORIGIN__/images/hero.jpg","address":{"@type":"PostalAddress","streetAddress":"Via Giuseppe Compagnoni 8","postalCode":"20129","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"},"areaServed":[{"@type":"City","name":"Milano"},{"@type":"AdministrativeArea","name":"Città metropolitana di Milano"}],"description":"Ristrutturazioni di appartamenti chiavi in mano a Milano e provincia con un unico referente, dalla progettazione alla consegna.","sameAs":["https://labottegadegliartigiani.it/","https://www.instagram.com/labottega.degliartigiani/"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"24","bestRating":"5"}}).split('__ORIGIN__').join(o);document.head.appendChild(s);})();
+var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"La Bottega degli Artigiani","legalName":"BIGPI S.r.l. a socio unico","vatID":"IT11585440966","url":"__ORIGIN__/","telephone":"+39 02 4549 3533","email":"mail@labottegadegliartigiani.it","image":"__ORIGIN__/images/hero.jpg","address":{"@type":"PostalAddress","streetAddress":"Via Giuseppe Compagnoni 8","postalCode":"20129","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"},"areaServed":[{"@type":"City","name":"Milano"},{"@type":"AdministrativeArea","name":"Città metropolitana di Milano"}],"description":"Ristrutturazioni di appartamenti chiavi in mano a Milano e provincia con un unico referente, dalla progettazione alla consegna.","sameAs":["https://labottegadegliartigiani.it/","https://www.instagram.com/labottega.degliartigiani/"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"24","bestRating":"5"}}).split('__ORIGIN__').join(o);document.head.appendChild(s);})();
 </script>
 
 <style>
@@ -970,7 +972,7 @@ details.calc-disc[open] summary::after{content:" –"}
       <div><h3>Contatti</h3><p><a class="js-call" href="tel:+390245493533">+39 <span class="js-phone">02 4549 3533</span></a><br><a class="js-mail" href="mailto:mail@labottegadegliartigiani.it">mail@labottegadegliartigiani.it</a><br><span class="js-addr">Via Giuseppe Compagnoni 8, 20129 Milano MI</span></p></div>
       <div><h3>Informazioni legali</h3><p><a class="js-privacy" href="/privacy.html">Informativa privacy</a><br><a href="#" class="js-cookieopen">Preferenze cookie</a></p></div>
     </div>
-    <p class="copy">© <span class="js-year">2026</span> La Bottega degli Artigiani<span class="js-piva"></span>. Tutti i diritti riservati.</p>
+    <p class="copy">© <span class="js-year">2026</span> La Bottega degli Artigiani<span class="js-legal"></span>. Tutti i diritti riservati.</p>
   </div>
 </footer>
 
@@ -1012,7 +1014,7 @@ $$('.js-privacy').forEach(function(e){e.href=S.privacyUrl});
 $('.js-mail').href='mailto:'+S.email;$('.js-mail').textContent=S.email;
 $('.js-addr').textContent=S.address;
 $('.js-year').textContent=new Date().getFullYear();
-if(S.piva)$('.js-piva').textContent=' · P.IVA '+S.piva;
+$('.js-legal').textContent=(S.company?' è un servizio di '+S.company:'')+(S.legalSeat?' · Sede legale: '+S.legalSeat:'')+(S.piva?' · P.IVA e C.F. '+S.piva:'');
 if(S.whatsapp){var wa=$('.js-wa');wa.classList.remove('hide');wa.href='https://wa.me/'+S.whatsapp+'?text='+encodeURIComponent('Buongiorno, vorrei informazioni per una ristrutturazione.');}
 if(S.financingMax>0){$$('.js-finmax').forEach(function(e){e.textContent=S.financingMax.toLocaleString('it-IT')});}
 else{$$('.js-finSec,.js-finFaq,.js-fin-inline').forEach(function(e){e.classList.add('hide')});}
