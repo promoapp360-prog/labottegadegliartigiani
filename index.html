@@ -264,8 +264,11 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .years{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-top:18px}
 .years div{background:#2C3832;border-radius:6px;padding:6px 0 5px;text-align:center;font-size:.62rem;color:#9FB0A6}
 .years div b{display:block;height:4px;margin:0 6px 5px;border-radius:2px;background:#8FE0A9}
-.loss{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:18px;padding:12px 14px;border-radius:10px;background:rgba(255,120,100,.12);border:1px solid rgba(255,140,120,.35);font-size:.85rem}
-.loss strong{color:#FFB4A6;white-space:nowrap;font-size:1rem}
+.loss{margin-top:16px;padding:14px 16px;border-radius:12px;background:#4A2420;border:1px solid #A8483A;font-size:.85rem;color:#F6DCD6}
+.loss span{display:block;font-weight:600}
+.loss em{font-style:normal;display:block;margin-top:2px;color:#E9C3BB}
+.loss em b{color:#fff}
+.loss strong{display:block;color:#FFB4A6;font-size:2rem;line-height:1.15;font-weight:700;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
 .calc-disc{font-size:.75rem;color:var(--text-2);margin-top:14px;max-width:900px;line-height:1.5}
 
 /* specialists */
@@ -408,6 +411,7 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
 .pcase p{color:var(--text-2);font-size:.92rem}
 .pnote{margin-top:14px;font-size:.92rem;color:var(--text-2)}
 .pnote a{color:var(--primary-dk);font-weight:600;white-space:nowrap}
+.loss-inline{color:#A8331F}
 @media(max-width:899px){.ptiles{grid-template-columns:1fr 1fr;gap:10px}.ptile-main{grid-column:1/-1}.ptile{padding:14px 14px}.ptile strong{font-size:1.35rem}.ptile-main strong{font-size:1.5rem}.ptile em{font-size:.8rem}}
 /* video */
 .vcard{display:flex;align-items:center;gap:14px;width:100%;max-width:440px;margin:4px 0 6px;padding:10px 14px 10px 10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;cursor:pointer;text-align:left;font:inherit;color:inherit;box-shadow:0 6px 18px -12px rgba(41,41,41,.35);transition:border-color .15s,transform .1s}
@@ -546,7 +550,7 @@ details.calc-disc[open] summary::after{content:" –"}
   <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></symbol>
 </svg>
 
-<a href="#calcolatore" class="bonusbar js-bonusbar hide"><span class="bb-dot"></span><span class="bb-txt"><strong>Bonus 50%<span class="bb-x"> sulla</span> prima casa</strong><span class="bb-x"> solo per i pagamenti</span> entro il 31/12<span class="bb-x">/2026</span> · <span class="js-days"></span></span><span class="bb-cta">Calcola il risparmio →</span></a>
+<a href="#calcolatore" class="bonusbar js-bonusbar hide"><span class="bb-dot"></span><span class="bb-txt"><span class="bb-x">Bonus 50% prima casa solo fino al 31/12: </span><strong>dal 2027 perdi fino a <span class="js-maxloss">13.440 €</span><span class="bb-x"> di detrazione</span></strong> · <span class="js-days"></span></span><span class="bb-cta">Calcola quanto perdi →</span></a>
 <header>
   <div class="wrap hdr">
     <a href="#top" class="logo" aria-label="La Bottega degli Artigiani">LA BOTTEGA<small>DEGLI ARTIGIANI</small></a>
@@ -576,7 +580,7 @@ details.calc-disc[open] summary::after{content:" –"}
         <li><svg><use href="#i-check"/></svg><span><strong>Un unico interlocutore</strong> dal primo incontro alla consegna</span></li>
         <li><svg><use href="#i-check"/></svg><span><strong>Cronoprogramma scritto</strong> con data di inizio e fine lavori</span></li>
         <li><svg><use href="#i-check"/></svg><span><strong>Garanzia di 10 anni</strong> sui lavori, cantieri assicurati</span></li>
-        <li class="js-bonus-li hide"><svg><use href="#i-check"/></svg><span><strong>Detrazione fiscale del 50%</strong> sulla prima casa per i pagamenti 2026 · <a href="#calcolatore" class="js-tocalc" style="color:var(--primary);font-weight:600">calcola quanto risparmi</a></span></li>
+        <li class="js-bonus-li hide"><svg><use href="#i-check"/></svg><span><strong>Detrazione del 50% solo nel 2026</strong>: aspettando il 2027 perdi fino a <strong class="js-maxloss">13.440 €</strong> · <a href="#calcolatore" class="js-tocalc" style="color:var(--primary-dk);font-weight:600">calcola quanto perdi</a></span></li>
       </ul>
       <div class="hero-cta-desk">
         <a class="btn btn-ghost js-call" href="tel:+390245493533"><svg><use href="#i-phone"/></svg>Chiama <span class="js-phone">02 4549 3533</span></a>
@@ -744,15 +748,16 @@ details.calc-disc[open] summary::after{content:" –"}
           <strong class="js-c-ded">25.000 €</strong>
           <em>pari a <b class="js-c-rata">2.500 €</b> all'anno per 10 anni</em>
         </div>
+        <div class="loss">
+          <span>Se aspetti e paghi nel 2027</span>
+          <strong class="js-c-loss">perdi 7.000 €</strong>
+          <em>la detrazione scende a <b class="js-c-next">18.000 €</b></em>
+        </div>
         <div class="bars" aria-hidden="true">
           <div class="bar"><i class="b-net js-b-net"></i><i class="b-ded js-b-ded"></i></div>
           <div class="legend"><span><i class="lg-net"></i>Costo reale <b class="js-c-net">25.000 €</b></span><span><i class="lg-ded"></i>Ti torna indietro <b class="js-c-ded2">25.000 €</b></span></div>
         </div>
         <div class="years" aria-hidden="true"></div>
-        <div class="loss">
-          <span>Se paghi dal 2027 la detrazione scende a <b class="js-c-next">18.000 €</b></span>
-          <strong class="js-c-loss">Perdi 7.000 €</strong>
-        </div>
         <a href="#preventivo" class="btn btn-primary js-calc-cta" style="width:100%;margin-top:16px">Blocca l'aliquota 2026: richiedi il sopralluogo</a>
       </div>
     </div>
@@ -772,7 +777,7 @@ details.calc-disc[open] summary::after{content:" –"}
       <div class="card ptile"><span>Cucina</span><strong>da 7.000 €</strong><em>materiali esclusi · circa 8.000 € con materiali</em></div>
     </div>
     <div class="pcase card"><svg><use href="#i-cal"/></svg><div><strong>Ultimo cantiere consegnato</strong><p>Appartamento di 150 mq in zona Piazza Napoli: 20 settimane, con date di inizio e fine fissate nel cronoprogramma.</p></div></div>
-    <p class="pnote js-pnote">Con la detrazione del 50% sulla prima casa, metà della spesa ti torna in 10 anni. <a href="#calcolatore">Calcola il tuo risparmio ↑</a></p>
+    <p class="pnote js-pnote"><strong>Esempio:</strong> 80 mq a 800 €/mq fanno 64.000 €. Pagando nel 2026 sulla prima casa recuperi 32.000 €; dal 2027 solo 23.040 €. <strong class="loss-inline">Aspettare costa 8.960 €.</strong> <a href="#calcolatore">Fai il tuo calcolo ↑</a></p>
   </div>
 </section>
 
@@ -1092,6 +1097,7 @@ var variant=key+(comune?'|'+comune:'');
 function eur(n){return Math.round(n).toLocaleString('it-IT')+' €'}
 if(bonusOn){
   $$('.js-bonusbar,.js-bonus-li,.js-calcsec').forEach(function(e){e.classList.remove('hide')});
+  var maxLoss=BON.cap*(BON.now.main-BON.next.main);$$('.js-maxloss').forEach(function(e){e.textContent=Math.round(maxLoss).toLocaleString('it-IT')+' €'});
   var days=Math.ceil((new Date(BON.deadline)-Date.now())/864e5);
   $('.js-days').innerHTML=days>1?'<span class="bb-x">mancano </span><b>'+days+' giorni</b>':'<b>ultimo giorno</b>';
   var rng=$('#c-spesa'),type='main',yrs=$('.years');
@@ -1104,7 +1110,7 @@ if(bonusOn){
     $('.js-c-rata').textContent=eur(ded/10);
     $('.js-c-net').textContent=eur(sp-ded);
     $('.js-c-next').textContent=eur(nxt);
-    $('.js-c-loss').textContent='Perdi '+eur(ded-nxt);
+    $('.js-c-loss').textContent='perdi '+eur(ded-nxt);$('.js-calc-cta').textContent='Non perdere '+eur(ded-nxt)+': richiedi il sopralluogo';
     $('.js-b-net').style.width=((sp-ded)/sp*100)+'%';$('.js-b-ded').style.width=(ded/sp*100)+'%';
     $('.js-c-capnote').classList.toggle('hide',sp<=BON.cap);
     return sp;
