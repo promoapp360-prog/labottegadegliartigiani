@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ristrutturazione Appartamento Milano e Provincia | Chiavi in Mano | La Bottega degli Artigiani</title>
-<meta name="description" content="Ristrutturazione chiavi in mano a Milano e provincia con un unico referente: progetto, preventivo scritto prima di partire, gestione cantiere e consegna. Sopralluogo gratuito.">
+<title>Ristrutturazione Appartamento Milano | La Bottega degli Artigiani</title>
+<meta name="description" content="Ristrutturazione chiavi in mano a Milano e provincia con un unico referente: preventivo scritto prima di partire, cantiere coordinato. Sopralluogo gratuito.">
 <meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ristrutturazione chiavi in mano a Milano e provincia | Unico referente">
@@ -103,6 +103,7 @@ a{color:inherit}
 h1,h2,h3{line-height:1.15;letter-spacing:-.01em}
 h2{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:700;margin-bottom:14px}
 .eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:10px}
+.zone .eyebrow,.calcsec .eyebrow{color:var(--primary-dk)}
 .lead{color:var(--text-2);font-size:1.05rem;max-width:62ch}
 section{padding:64px 0;scroll-margin-top:64px}
 @media(min-width:900px){section{padding:96px 0}}
@@ -202,7 +203,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(248,246,241,.94);backdro
 .reassure svg{width:15px;height:15px;flex:none}
 .after{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line)}
 .after li{font-size:.75rem;color:var(--text-2);text-align:center;line-height:1.35}
-.after b{display:grid;place-items:center;width:24px;height:24px;margin:0 auto 6px;border-radius:50%;background:var(--muted);color:var(--primary);font-size:.78rem}
+.after b{display:grid;place-items:center;width:24px;height:24px;margin:0 auto 6px;border-radius:50%;background:var(--muted);color:var(--primary-dk);font-size:.78rem}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .success{display:none;text-align:center;padding:12px 0}
 .success .tick{width:64px;height:64px;border-radius:50%;background:#E7F3EC;color:var(--ok);display:grid;place-items:center;margin:0 auto 16px}
@@ -358,7 +359,7 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 footer{padding:40px 0 28px;font-size:.88rem;color:var(--text-2)}
 .fgrid{display:grid;gap:20px}
 @media(min-width:900px){.fgrid{grid-template-columns:2fr 1fr 1fr}}
-footer h4{color:var(--text);font-size:.9rem;margin-bottom:8px}
+footer h3{color:var(--text);font-size:.9rem;margin-bottom:8px}
 footer a{text-decoration:none}
 footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;font-size:.8rem}
 
@@ -612,10 +613,11 @@ details.calc-disc[open] summary::after{content:" –"}
             <div class="field" data-f="phone">
               <label for="f-phone">Cellulare</label>
               <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="333 123 4567">
+              <p class="hint">Lo usiamo solo per fissare il sopralluogo.</p>
               <p class="err">Inserisci un numero valido: ti chiamiamo per fissare il sopralluogo.</p>
             </div>
             <div class="field" data-f="email">
-              <label for="f-email">Email</label>
+              <label for="f-email">Email <span style="font-weight:400;color:var(--text-2)">(per inviarti il preventivo)</span></label>
               <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" enterkeyhint="done" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="nome@email.it">
               <p class="err">Inserisci un'email valida.</p>
             </div>
@@ -892,8 +894,8 @@ details.calc-disc[open] summary::after{content:" –"}
   <div class="wrap">
     <div class="fgrid">
       <div><div class="logo" style="margin-bottom:10px">LA BOTTEGA<small>DEGLI ARTIGIANI</small></div><p>Ristrutturazioni chiavi in mano a Milano e provincia. Artigianalità, trasparenza e un unico referente dedicato.</p></div>
-      <div><h4>Contatti</h4><p><a class="js-call" href="tel:+390245493533">+39 <span class="js-phone">02 4549 3533</span></a><br><a class="js-mail" href="mailto:mail@labottegadegliartigiani.it">mail@labottegadegliartigiani.it</a><br><span class="js-addr">Via Giuseppe Compagnoni 8, 20129 Milano MI</span></p></div>
-      <div><h4>Informazioni legali</h4><p><a class="js-privacy" href="/privacy.html">Informativa privacy</a><br><a href="#" class="js-cookieopen">Preferenze cookie</a></p></div>
+      <div><h3>Contatti</h3><p><a class="js-call" href="tel:+390245493533">+39 <span class="js-phone">02 4549 3533</span></a><br><a class="js-mail" href="mailto:mail@labottegadegliartigiani.it">mail@labottegadegliartigiani.it</a><br><span class="js-addr">Via Giuseppe Compagnoni 8, 20129 Milano MI</span></p></div>
+      <div><h3>Informazioni legali</h3><p><a class="js-privacy" href="/privacy.html">Informativa privacy</a><br><a href="#" class="js-cookieopen">Preferenze cookie</a></p></div>
     </div>
     <p class="copy">© <span class="js-year">2026</span> La Bottega degli Artigiani<span class="js-piva"></span>. Tutti i diritti riservati.</p>
   </div>
@@ -1136,19 +1138,29 @@ form.addEventListener('click',function(e){
 });
 
 // verifica zona (non blocca: qualifica il lead)
-function inArea(loc){
+var FUORI=['roma','torino','bergamo','brescia','como','varese','lodi','pavia','novara','monza','lecco','cremona','piacenza','genova','bologna','napoli','firenze','verona','padova','venezia'];
+function areaStatus(loc){        // 'in' | 'out' | 'unknown'
   var l=(loc||'').toLowerCase(),cap=(l.match(/\b\d{5}\b/)||[])[0];
-  if(cap)return /^20(0\d\d|1[2-6]\d)$/.test(cap);
-  if(/milano/.test(l))return true;
-  return COMUNI.some(function(c){return l.indexOf(c.toLowerCase())>-1});
+  if(cap)return /^20(0\d\d|1[0-6]\d)$/.test(cap)?'in':'out';
+  if(/milano|\(mi\)|\bmi\b/.test(l))return 'in';
+  if(COMUNI.some(function(c){return l.indexOf(c.toLowerCase())>-1}))return 'in';
+  if(FUORI.some(function(c){return new RegExp('\\b'+c+'\\b').test(l)}))return 'out';
+  return 'unknown';
 }
+function inArea(loc){return areaStatus(loc)!=='out';}
 $('#f-loc').addEventListener('blur',function(){
   var v=this.value.trim(),h=$('.js-lochint');if(!v){h.textContent='';return}
-  var a=inArea(v);h.textContent=a?'✓ Zona coperta: sopralluogo disponibile.':'Verificheremo la disponibilità per la tua zona.';h.style.color=a?'var(--ok)':'var(--text-2)';
+  var st=areaStatus(v);h.textContent=st==='in'?'✓ Zona coperta: sopralluogo disponibile.':st==='out'?'Lavoriamo a Milano e provincia: verificheremo la disponibilità per la tua zona.':'Ti confermiamo la disponibilità quando ti chiamiamo.';h.style.color=st==='in'?'var(--ok)':'var(--text-2)';
 });
 
-function normPhone(p){var d=(p||'').replace(/[^\d+]/g,'');if(d.indexOf('+')===0)return d;d=d.replace(/^0039/,'');return '+39'+d;}
-function phoneOk(p){var d=(p||'').replace(/\D/g,'').replace(/^(0039|39)(?=3\d{8,9}$)/,'');return /^(3\d{8,9}|0\d{5,10})$/.test(d);}
+function normPhone(p){var d=(p||'').replace(/[^\d+]/g,'');if(d.indexOf('+')===0)return d;if(/^00/.test(d))return '+'+d.slice(2);return '+39'+d;}
+function phoneOk(p){
+  var raw=(p||'').trim(),d=raw.replace(/\D/g,'');
+  var intl=/^\+/.test(raw)||/^00/.test(d);
+  var it=d.replace(/^0039/,'').replace(/^39(?=(3\d{8,9}|0\d{5,10})$)/,'');
+  if(/^(3\d{8,9}|0\d{5,10})$/.test(it))return true;                 // cellulare o fisso italiano
+  return intl&&!/^(0039|39)/.test(d.replace(/^00/,'00'))&&/^\d{8,15}$/.test(d.replace(/^00/,''));  // numero estero con prefisso
+}
 function setBad(f,bad){var w=form.querySelector('[data-f="'+f+'"]');w.classList.toggle('bad',bad);return !bad}
 
 form.addEventListener('submit',function(e){
@@ -1165,8 +1177,8 @@ form.addEventListener('submit',function(e){
   // anti-spam: honeypot + tempo minimo
   if(form.company_website.value||Date.now()-t0<3000){success(true);return}
 
-  var area_ok=inArea(loc);
-  tracking.in_area=area_ok;
+  var area_st=areaStatus(loc),area_ok=area_st!=='out';
+  tracking.area_status=area_st;if(area_st!=='unknown')tracking.in_area=area_st==='in';else delete tracking.in_area;
   var leadId='L'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
   var payload={propertyType:val('propertyType'),area:val('area'),intervention:val('intervention'),location:loc,startTiming:val('startTiming'),investment:val('investment'),name:name,phone:phone,email:email,privacyConsent:true};
   var btn=$('.js-submit');btn.disabled=true;btn.textContent='Invio in corso…';$('.js-sendErr').classList.remove('show');
@@ -1181,7 +1193,7 @@ form.addEventListener('submit',function(e){
     'Nome':name,'Telefono':phone,
     'Chiama ora':'tel:'+e164,
     'Scrivi su WhatsApp':'https://wa.me/'+waNum+'?text='+encodeURIComponent(waMsg),
-    'Email':email,'Zona':loc,'Zona coperta':area_ok?'SÌ':'DA VERIFICARE (fuori Milano/provincia?)',
+    'Email':email,'Zona':loc,'Zona coperta':area_st==='in'?'SÌ':area_st==='out'?'NO – probabilmente fuori zona':'DA VERIFICARE (comune non riconosciuto)',
     'Intervento':lab(payload.intervention),'Immobile':lab(payload.propertyType),'Metratura':lab(payload.area),
     'Inizio lavori':lab(payload.startTiming),'Budget':lab(payload.investment),
     'Consenso privacy':'Sì','ID lead':leadId,
@@ -1207,6 +1219,7 @@ form.addEventListener('submit',function(e){
   })
     .then(function(){
       var value=area_ok?(S.leadValue[payload.investment]||40):S.outOfAreaValue;
+      window._leadSent=true;
       ss.set('bda_lead',JSON.stringify({name:name.split(' ')[0],intervention:lab(payload.intervention),loc:loc}));
       track('generate_lead',{value:value,currency:'EUR',lead_id:leadId,intervention:payload.intervention,investment:payload.investment,in_area:area_ok});
       var done=false;function go(){if(done)return;done=true;if(S.thankYouUrl)location.href=S.thankYouUrl;else success();}
@@ -1222,6 +1235,7 @@ form.addEventListener('submit',function(e){
       track('form_error');
     });
 });
+window.addEventListener('pageshow',function(e){if(e.persisted&&window._leadSent){success();}});
 function success(){$('.js-formbody').classList.add('hide');$('.js-success').style.display='block';formEl.scrollIntoView({behavior:'smooth',block:'center'});}
 })();
 </script>
