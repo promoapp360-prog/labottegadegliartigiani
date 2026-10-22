@@ -167,6 +167,7 @@ header{position:sticky;top:0;z-index:40;background:rgba(248,246,241,.94);backdro
 .step.on{display:block}
 @keyframes fade{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
 .q{font-weight:600;margin:0 0 10px;font-size:1rem}
+.q:focus{outline:none}
 .q + .opts{margin-bottom:18px}
 .opts{display:grid;gap:10px}
 .opts.c2{grid-template-columns:1fr 1fr}
@@ -945,12 +946,26 @@ if(V[key].pre){var r=form.querySelector('input[name="intervention"][value="'+V[k
 if(V[key].pt){var r2=form.querySelector('input[name="propertyType"][value="'+V[key].pt+'"]');if(r2)r2.checked=true;}
 if(comune)$('#f-loc').value=comune;
 function val(n){var e=form.querySelector('input[name="'+n+'"]:checked');return e?e.value:''}
-function show(n){
-  step=n;$$('.step',form).forEach(function(s){s.classList.toggle('on',+s.dataset.step===n)});
+var advTimer=null,lastPointer=0,hasHist=!!(window.history&&history.pushState);
+function show(n,opt){
+  opt=opt||{};
+  clearTimeout(advTimer);advTimer=null;
+  step=n;$$('.step',form).forEach(function(s){var on=+s.dataset.step===n;s.classList.toggle('on',on);s.setAttribute('aria-hidden',on?'false':'true')});
   $('.js-bar').style.width=(n/TOT*100)+'%';$('.js-stepn').textContent='Passo '+n+' di '+TOT;
   $('.js-steplbl').textContent=$('.step[data-step="'+n+'"]').dataset.label;
   $('.js-back').classList.toggle('hide',n===1);$('.js-next').classList.toggle('hide',n===TOT);$('.js-submit').classList.toggle('hide',n!==TOT);
-  $$('.stepErr').forEach(function(e){e.classList.remove('show')});
+  $$('.stepErr').forEach(function(x){x.classList.remove('show')});
+  if(opt.focus!==false){
+    // focus sulla prima domanda del passo (lettori di schermo e tastiera), senza far saltare la pagina
+    var f=n===TOT?null:$('.step[data-step="'+n+'"] .q');
+    if(f){f.setAttribute('tabindex','-1');try{f.focus({preventScroll:true})}catch(_){f.focus()}}
+    else if(n===TOT&&opt.user){var inp=$('#f-loc').value?$('#f-name'):$('#f-loc');setTimeout(function(){try{inp.focus({preventScroll:true})}catch(_){}} ,280);}
+  }
+  // su mobile riallinea il form solo se la domanda non è ben visibile
+  if(opt.scroll&&window.innerWidth<900){
+    var t=formEl.getBoundingClientRect().top;
+    if(t<0||t>window.innerHeight*0.45)formEl.scrollIntoView({behavior:'smooth',block:'start'});
+  }
   track('form_step',{step:n});
 }
 function valid(n){
@@ -961,15 +976,45 @@ function valid(n){
   if(!ok)$('.step[data-step="'+n+'"] .stepErr').classList.add('show');
   return ok;
 }
-function next(){if(!valid(step))return;if(step<TOT){show(step+1);if(window.innerWidth<900)formEl.scrollIntoView({behavior:'smooth',block:'start'});}}
+function stepComplete(n){return (n===1&&!!val('intervention'))||(n===2&&!!val('area')&&!!val('propertyType'))||(n===3&&!!val('startTiming')&&!!val('investment'));}
+function next(){
+  if(!valid(step))return;
+  if(step<TOT){
+    show(step+1,{scroll:true,user:true});
+    // ogni passo entra nella cronologia: il tasto Indietro del telefono torna al passo precedente invece di uscire
+    if(hasHist){try{history.pushState(Object.assign({},history.state||{},{bdaStep:step}),'')}catch(_){}}
+  }
+}
+function back(){
+  if(step<=1)return;
+  if(hasHist&&history.state&&history.state.bdaStep===step){history.back();}
+  else show(step-1,{user:true});
+}
+if(hasHist){try{history.replaceState(Object.assign({},history.state||{},{bdaStep:1}),'')}catch(_){}}
+window.addEventListener('popstate',function(e){
+  var s=e.state&&e.state.bdaStep;
+  if(s&&s!==step){
+    if(s>step&&!stepComplete(step)){try{history.back()}catch(_){};return;}  // non permette di saltare avanti un passo incompleto
+    show(s,{scroll:true});track('form_history_nav',{to:s});
+  }
+});
 $('.js-next').addEventListener('click',next);
-$('.js-back').addEventListener('click',function(){if(step>1)show(step-1)});
-// avanzamento automatico al tap quando lo step è completo
+$('.js-back').addEventListener('click',back);
+
+// avanzamento automatico solo con tocco/clic (non con le frecce della tastiera)
+form.addEventListener('pointerdown',function(){lastPointer=Date.now()},true);
 form.addEventListener('change',function(e){
   if(!started){started=true;track('form_start');}
-  if(e.target.type!=='radio')return;
-  var complete=(step===1&&val('intervention'))||(step===2&&val('area'))||(step===3&&val('startTiming')&&val('investment'));
-  if(complete&&step<TOT&&e.target.name!=='propertyType')setTimeout(next,220);
+  if(e.target.type==='radio'){var se=e.target.closest('.step');if(se){var er=se.querySelector('.stepErr');if(er&&stepComplete(+se.dataset.step))er.classList.remove('show');}}
+});
+form.addEventListener('click',function(e){
+  var t=e.target;
+  if(!t||t.type!=='radio'||t.name==='propertyType')return;
+  if(Date.now()-lastPointer>1200)return;               // attivazione da tastiera: niente salto automatico
+  var at=step;
+  if(!stepComplete(at)||at>=TOT)return;
+  clearTimeout(advTimer);                               // tocchi ravvicinati: vale solo l'ultimo
+  advTimer=setTimeout(function(){advTimer=null;if(step===at&&stepComplete(at))next();},260);
 });
 
 // verifica zona (non blocca: qualifica il lead)
