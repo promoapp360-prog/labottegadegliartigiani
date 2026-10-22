@@ -50,7 +50,7 @@ window.SITE = {
   // --- Prova sociale: si attivano solo con dati REALI ---
   youtubeId: "",
   video: { src: "/video/bonus-2026.mp4", poster: "/video/bonus-2026-poster.jpg", dur: "0:30" }, // video verticale; vuoto = card nascoste                      // video di presentazione (facade, zero peso finché non si clicca)
-  googleRating: { score: 5.0, count: 24, url: "https://share.google/l96s5LIMBp1Xi1i0Z" }, // dati reali dalla scheda Google (22/10/2026)
+  googleRating: { score: 5.0, count: 24, showCount: false, url: "https://share.google/l96s5LIMBp1Xi1i0Z" }, // dati reali dalla scheda Google (22/10/2026)
   // estratti fedeli di recensioni Google reali (5/5), nome abbreviato
   reviews: [{"name": "Ettore D.", "work": "Lavori in casa", "when": "3 mesi fa", "text": "Una delle mie esigenze principali erano le tempistiche e, con mia sorpresa, i lavori sono stati completati addirittura in anticipo rispetto a quanto previsto. Ho apprezzato molto il fatto di avere un unico referente che ha seguito tutto dall’inizio alla fine…"}, {"name": "Cheo C.", "work": "Ristrutturazione bagno", "when": "3 settimane fa", "text": "Richieste soddisfatte e prezzo buono (soprattutto senza incrementi a sorpresa alla fine). Dopo un anno e mezzo intervenuti con super velocità ed efficienza per un piccolo problema."}, {"name": "Andrea", "work": "Ristrutturazione completa", "when": "", "text": "Una delle rassicurazioni maggiori che ho chiesto al titolare, visti i lunghi tempi della ristrutturazione (5 mesi) era la presenza costante e la continuità giornaliera dei lavori, TUTTO RISPETTATO!"}, {"name": "Carlo O.", "work": "Bagno, cabina armadio e camera", "when": "3 mesi fa", "text": "Fin dal sopralluogo ho trovato persone competenti, disponibili e molto chiare nelle spiegazioni. I lavori sono stati eseguiti con attenzione e professionalità, rispettando le tempistiche concordate e lasciando sempre gli ambienti in ordine."}, {"name": "Daniele D.", "work": "Tutta la casa", "when": "", "text": "Davide è stato velocissimo e cordiale. Non li conoscevo ma sono stati la scelta giusta. Ho rifatto tutta casa in 2 mesi e mezzo. Organizzatissimi!"}, {"name": "Luca D.", "work": "Progettista · ufficio trasformato in bilocale", "when": "1 mese fa", "text": "Ho apprezzato la massima disponibilità e collaborazione dimostrata durante tutto il progetto, soprattutto nella fase di studio e definizione della disposizione interna degli ambienti."}],
   portfolio: []                       // es. [{ img:"/images/lavori/1.jpg", title:"Trilocale 85 mq", zone:"Porta Romana" }]
@@ -668,7 +668,7 @@ details.calc-disc[open] summary::after{content:" –"}
             <button type="submit" class="btn btn-primary js-submit hide">Prenota il sopralluogo gratuito</button>
           </div>
           <p class="reassure"><svg><use href="#i-lock"/></svg>Nessun impegno. I tuoi dati servono solo a ricontattarti.</p>
-          <a class="form-rating js-frating hide" href="#recensioni"><span class="stars">★★★★★</span> <b class="js-fscore"></b> · <span class="js-fcount"></span> recensioni su Google</a>
+          <a class="form-rating js-frating hide" href="#recensioni"><span class="stars">★★★★★</span> <b class="js-fscore"></b>/5 nelle recensioni Google<span class="js-fcount"></span></a>
           <ol class="after">
             <li><b>1</b>Ti chiamiamo dallo <span class="js-phone">02 4549 3533</span></li>
             <li><b>2</b>Fissiamo il sopralluogo gratuito</li>
@@ -990,14 +990,14 @@ var mb=document.createElement('button');mb.type='button';mb.className='chips-mor
 mb.addEventListener('click',function(){chips.classList.add('open');mb.remove();});chips.parentNode.insertBefore(mb,chips.nextSibling);
 
 /* ---------- 2. Prova sociale (solo dati reali) ---------- */
-if(S.googleRating&&S.googleRating.score){var rb=$('.js-rating');rb.style.display='inline-flex';rb.href=S.googleRating.url||'#';rb.innerHTML='<span class="stars">★★★★★</span>'+String(S.googleRating.score.toFixed?S.googleRating.score.toFixed(1):S.googleRating.score).replace('.',',')+' su Google · '+S.googleRating.count+' recensioni';}
+if(S.googleRating&&S.googleRating.score){var rb=$('.js-rating');rb.style.display='inline-flex';rb.href=S.googleRating.url||'#';rb.innerHTML='<span class="stars">★★★★★</span>'+String(S.googleRating.score.toFixed?S.googleRating.score.toFixed(1):S.googleRating.score).replace('.',',')+'/5 su Google'+(S.googleRating.showCount?' · '+S.googleRating.count+' recensioni':'');}
 function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
 if(S.reviews&&S.reviews.length){$('.js-revSec').classList.remove('hide');$('.js-revs').innerHTML=S.reviews.slice(0,6).map(function(r){return '<div class="card"><div class="stars" aria-label="5 stelle su 5">★★★★★</div><p>“'+esc(r.text)+'”</p><div class="who">'+esc(r.name)+(r.work?'<span>'+esc(r.work)+'</span>':'')+'</div><div class="src">Recensione Google'+(r.when?' · '+esc(r.when):'')+'</div></div>'}).join('');}
 if(S.googleRating&&S.googleRating.score){
   var sc=String(S.googleRating.score.toFixed?S.googleRating.score.toFixed(1):S.googleRating.score).replace('.',',');
-  $('.js-revsum').innerHTML='<span class="stars">★★★★★</span> <b>'+esc(sc)+' su 5</b><span class="rc">'+esc(S.googleRating.count)+' recensioni, tutte verificabili su Google</span>';
-  var ra=$('.js-revall');ra.href=S.googleRating.url||'#';ra.textContent='Leggi tutte le '+S.googleRating.count+' recensioni su Google →';
-  var fr=$('.js-frating');fr.classList.remove('hide');$('.js-fscore').textContent=sc;$('.js-fcount').textContent=S.googleRating.count;
+  $('.js-revsum').innerHTML='<span class="stars">★★★★★</span> <b>'+esc(sc)+' su 5</b><span class="rc">'+(S.googleRating.showCount?esc(S.googleRating.count)+' recensioni, tutte verificabili su Google':'recensioni verificabili su Google')+'</span>';
+  var ra=$('.js-revall');ra.href=S.googleRating.url||'#';ra.textContent=S.googleRating.showCount?'Leggi tutte le '+S.googleRating.count+' recensioni su Google →':'Leggi tutte le recensioni su Google →';
+  var fr=$('.js-frating');fr.classList.remove('hide');$('.js-fscore').textContent=sc;$('.js-fcount').textContent=S.googleRating.showCount?' · '+S.googleRating.count:'';
   ra.addEventListener('click',function(){window.dataLayer.push({event:'reviews_click'})});
 }
 if(S.portfolio&&S.portfolio.length){$('.js-portSec').classList.remove('hide');$('.js-port').innerHTML=S.portfolio.slice(0,6).map(function(p){return '<figure><img src="'+esc(p.img)+'" alt="'+esc(p.title)+'" loading="lazy" decoding="async" width="800" height="600"><figcaption>'+esc(p.title)+(p.zone?'<span>'+esc(p.zone)+'</span>':'')+'</figcaption></figure>'}).join('');}
