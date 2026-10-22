@@ -14,7 +14,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 
 <script>
 /* =====================================================================
@@ -378,6 +379,104 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
 @media(max-width:899px){.cookie{padding:12px 14px;font-size:.78rem}.cookie p{margin-bottom:8px}.cookie .btn{min-height:40px}}
 
 .hide{display:none!important}
+.m-only{display:none}
+@media(max-width:899px){.d-only,.d-inline{display:none!important}.m-only{display:block}}
+html{-webkit-tap-highlight-color:transparent}
+a,button,label,summary,input{touch-action:manipulation}
+.swipe-hint{font-size:.85rem;font-weight:600;color:var(--primary);margin-top:18px}
+.swipe-hint span{display:inline-block;animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(5px)}}
+.chips-more{display:none}
+details.calc-disc summary{cursor:pointer;font-weight:600;color:var(--text-2);padding:10px 0;list-style:none}
+details.calc-disc summary::-webkit-details-marker{display:none}
+details.calc-disc summary::after{content:" +";color:var(--primary)}
+details.calc-disc[open] summary::after{content:" –"}
+
+/* ===================== MOBILE ===================== */
+@media(max-width:899px){
+  section{padding:48px 0}
+  h2{font-size:clamp(1.45rem,6.4vw,1.8rem);margin-bottom:10px}
+  .lead{font-size:1rem}
+  /* barra bonus su una riga */
+  .bonusbar{padding:7px 12px;font-size:.78rem;justify-content:center;flex-wrap:nowrap;white-space:nowrap}
+  .bb-x{display:none}
+  .bb-txt{overflow:hidden;text-overflow:ellipsis}
+  /* header */
+  .hdr{height:56px}
+  .hdr-phone{min-height:44px;padding:0 2px 0 8px;font-size:.92rem}
+  /* hero compatto: il form deve vedersi subito */
+  .hero{padding:12px 0 40px}
+  .hero-grid{gap:16px}
+  .loc-pill{margin-bottom:10px;padding:4px 10px;font-size:.78rem}
+  .hero h1{font-size:clamp(1.55rem,7.4vw,1.95rem);margin-bottom:8px;letter-spacing:-.02em}
+  .hero .lead{font-size:.98rem;margin:0;color:var(--text-2)}
+  .formcard{padding:16px 14px 18px;border-radius:16px;scroll-margin-top:64px}
+  .formcard h2{font-size:1.18rem;margin-bottom:2px}
+  .formcard .sub{font-size:.85rem;margin-bottom:12px}
+  .progress{margin-bottom:6px}
+  .stepinfo{margin-bottom:12px;font-size:.78rem}
+  .q{margin-bottom:8px}
+  .q + .opts{margin-bottom:14px}
+  .opts{gap:8px}
+  .opt label{min-height:52px;padding:8px 12px}
+  .big .opt label{min-height:60px;padding-left:48px}
+  .big .opt label::before{left:14px}
+  .opt label:active{transform:scale(.985);background:#FBF5EF}
+  .after li{font-size:.8rem}
+  .checks{margin:6px 0 0;gap:8px}
+  .checks li{font-size:.95rem}
+  .trustline{margin-top:14px}
+  /* calcolatore */
+  .calc{margin-top:20px}
+  .calc-in,.calc-out{padding:20px 16px}
+  .calc-amt{font-size:2rem}
+  .kpi strong{font-size:2.2rem}
+  .years{display:none}
+  .loss{font-size:.82rem}
+  .calc-disc{font-size:.8rem}
+  /* specialisti: schede compatte */
+  .trades{gap:8px;margin-top:20px}
+  .trade{padding:12px 12px;display:flex;gap:8px;align-items:baseline}
+  .trade h3{margin:0;font-size:.9rem;line-height:1.25}
+  .trade p{display:none}
+  .regista{padding:16px;gap:12px}
+  /* caroselli orizzontali */
+  .snap{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;gap:12px;margin:14px -16px 0;padding:4px 16px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .snap::-webkit-scrollbar{display:none}
+  .snap>.card{flex:0 0 84%;scroll-snap-align:start}
+  .ps .card{padding:20px}
+  /* incluso: niente immagine su mobile */
+  .split>img{display:none}
+  .incl{gap:8px;margin-top:16px}
+  .incl div{font-size:.85rem;padding:10px 12px}
+  /* confronto */
+  .cmp{margin-top:18px}
+  .cmp-row{grid-template-columns:1fr 1fr;font-size:.84rem}
+  .cmp-row>div:first-child{grid-column:1/-1;padding:12px 12px 2px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--primary)}
+  .cmp-row>div{padding:6px 12px 12px}
+  .cmp-row .us{background:transparent}
+  .cmp-head{grid-template-columns:1fr 1fr}
+  .cmp-head>div:first-child{display:none}
+  .cmp-head>div{padding:12px!important;font-size:.72rem!important;color:var(--text-2)!important;text-transform:uppercase;letter-spacing:.06em}
+  .cmp-head .us{background:#FBF5EF!important;color:var(--primary)!important}
+  /* zona: comuni richiudibili */
+  .chips{margin-top:16px}
+  .chips:not(.open) span:nth-child(n+10){display:none}
+  .chips-more{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;padding:0 16px;border:1px solid var(--line);border-radius:99px;background:var(--surface);font:600 .85rem Poppins,sans-serif;color:var(--primary);cursor:pointer}
+  .fin{padding:22px 18px}
+  /* faq */
+  .faq{margin-top:18px}
+  .faq summary{padding:16px 44px 16px 16px;font-size:.95rem}
+  .final .btns .btn{width:100%}
+  /* footer: link comodi da toccare */
+  footer p a{display:inline-block;padding:9px 0}
+  footer{padding-bottom:20px}
+}
+@media(max-width:380px){
+  .hero h1{font-size:1.5rem}
+  .hdr-phone span{font-size:.85rem}
+  .logo{font-size:.9rem}
+}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto costa ristrutturare un appartamento a Milano?", "acceptedAnswer": {"@type": "Answer", "text": "Dipende da metratura, stato dell'immobile, impianti e finiture scelte. Per questo partiamo da un sopralluogo gratuito: dopo i rilievi ricevi un preventivo scritto e dettagliato, così sai quanto spendi prima di aprire il cantiere. Indicare un budget orientativo nel modulo ci aiuta a proporti soluzioni in linea."}}, {"@type": "Question", "name": "Il sopralluogo è davvero gratuito?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, il primo sopralluogo tecnico è gratuito e senza impegno. Il preventivo viene poi definito in base alle tue esigenze, ai rilievi e alle lavorazioni da prevedere; l'eventuale attività progettuale viene chiarita prima di iniziare."}}, {"@type": "Question", "name": "Quali sono i tempi di una ristrutturazione?", "acceptedAnswer": {"@type": "Answer", "text": "Dipendono dagli interventi, dallo stato dell'immobile e dalle eventuali pratiche. Dopo il sopralluogo e la definizione del progetto pianifichiamo le fasi e ti condividiamo i tempi previsti."}}, {"@type": "Question", "name": "Devo occuparmi io di permessi e pratiche?", "acceptedAnswer": {"@type": "Answer", "text": "No, non da solo. Le pratiche necessarie si valutano in base ai lavori e alla situazione dell'immobile: ti aiutiamo a capire quali adempimenti servono e li gestiamo nell'ambito del progetto."}}, {"@type": "Question", "name": "Lavorate anche in provincia di Milano?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, operiamo a Milano e nei comuni della città metropolitana. Inserisci CAP o comune nel modulo e ti confermiamo la disponibilità."}}, {"@type": "Question", "name": "Posso finanziare l'intervento?", "acceptedAnswer": {"@type": "Answer", "text": "È prevista una possibilità di finanziamento fino a 30.000 €. Disponibilità, condizioni e requisiti vengono verificati insieme durante la consulenza."}}, {"@type": "Question", "name": "Chi rilascia le certificazioni degli impianti?", "acceptedAnswer": {"@type": "Answer", "text": "Gli interventi sugli impianti e la relativa documentazione vengono definiti in progetto. Durante il sopralluogo ti indichiamo quali dichiarazioni di conformità saranno previste per i lavori del tuo immobile."}}, {"@type": "Question", "name": "Posso chiedere modifiche in corso d'opera?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, le varianti si valutano con il referente. Prima di procedere ti chiariamo l'effetto delle modifiche su lavorazioni, tempi e costi, così nessuna sorpresa a fine lavori."}}]}</script>
@@ -398,7 +497,7 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
   <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></symbol>
 </svg>
 
-<a href="#calcolatore" class="bonusbar js-bonusbar hide"><span class="bb-dot"></span><span><strong>Bonus 50% sulla prima casa</strong> solo per i pagamenti entro il 31/12/2026 · <span class="js-days"></span></span><span class="bb-cta">Calcola il risparmio →</span></a>
+<a href="#calcolatore" class="bonusbar js-bonusbar hide"><span class="bb-dot"></span><span class="bb-txt"><strong>Bonus 50%<span class="bb-x"> sulla</span> prima casa</strong><span class="bb-x"> solo per i pagamenti</span> entro il 31/12<span class="bb-x">/2026</span> · <span class="js-days"></span></span><span class="bb-cta">Calcola il risparmio →</span></a>
 <header>
   <div class="wrap hdr">
     <a href="#top" class="logo" aria-label="La Bottega degli Artigiani">LA BOTTEGA<small>DEGLI ARTIGIANI</small></a>
@@ -418,7 +517,8 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
       <a class="rating-badge js-rating" target="_blank" rel="noopener"></a>
       <div class="loc-pill"><svg><use href="#i-pin"/></svg><span class="js-area">Milano e provincia</span></div>
       <h1 class="js-h1">Ristrutturazione appartamento a Milano, <span class="serif">chiavi in mano.</span></h1>
-      <p class="lead js-sub">Progetto, preventivo, cantiere e consegna gestiti da <strong>un solo referente</strong>. Tu prendi le decisioni, al coordinamento di artigiani, forniture e pratiche pensiamo noi.</p>
+      <p class="lead js-sub d-only">Progetto, preventivo, cantiere e consegna gestiti da <strong>un solo referente</strong>. Tu prendi le decisioni, al coordinamento di artigiani, forniture e pratiche pensiamo noi.</p>
+      <p class="lead m-only">Un solo referente dal progetto alla consegna. <strong>Sopralluogo gratuito.</strong></p>
     </div>
     <div class="h-bot">
       <ul class="checks">
@@ -442,7 +542,7 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
       <form id="leadForm" novalidate>
         <div class="js-formbody">
           <h2>Richiedi il sopralluogo gratuito</h2>
-          <p class="sub">4 domande veloci, meno di 1 minuto. Ti ricontattiamo <span class="js-resp">entro 24 ore lavorative</span>.</p>
+          <p class="sub">4 domande, meno di 1 minuto.<span class="d-inline"> Ti ricontattiamo <span class="js-resp">entro 24 ore lavorative</span>.</span></p>
           <div class="progress"><i class="js-bar"></i></div>
           <div class="stepinfo"><span class="js-stepn">Passo 1 di 4</span><span class="js-steplbl">Intervento</span></div>
 
@@ -500,23 +600,23 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
           <div class="step" data-step="4" data-label="Contatti">
             <div class="field" data-f="location">
               <label for="f-loc">CAP o comune dell'immobile</label>
-              <input id="f-loc" name="location" autocomplete="postal-code" placeholder="Es. 20129 oppure Sesto San Giovanni">
+              <input id="f-loc" name="location" autocomplete="postal-code" enterkeyhint="next" autocapitalize="words" placeholder="Es. 20129 oppure Sesto San Giovanni">
               <p class="err">Indica CAP o comune.</p>
               <p class="hint js-lochint"></p>
             </div>
             <div class="field" data-f="name">
               <label for="f-name">Nome e cognome</label>
-              <input id="f-name" name="name" autocomplete="name" placeholder="Mario Rossi">
+              <input id="f-name" name="name" autocomplete="name" enterkeyhint="next" autocapitalize="words" autocorrect="off" placeholder="Mario Rossi">
               <p class="err">Inserisci il tuo nome.</p>
             </div>
             <div class="field" data-f="phone">
               <label for="f-phone">Cellulare</label>
-              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="333 123 4567">
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="333 123 4567">
               <p class="err">Inserisci un numero valido: ti chiamiamo per fissare il sopralluogo.</p>
             </div>
             <div class="field" data-f="email">
               <label for="f-email">Email</label>
-              <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="nome@email.it">
+              <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" enterkeyhint="done" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="nome@email.it">
               <p class="err">Inserisci un'email valida.</p>
             </div>
             <div class="hp" aria-hidden="true"><label>Lascia vuoto<input name="company_website" tabindex="-1" autocomplete="off"></label></div>
@@ -600,7 +700,7 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
         <a href="#preventivo" class="btn btn-primary js-calc-cta" style="width:100%;margin-top:16px">Blocca l'aliquota 2026: richiedi il sopralluogo</a>
       </div>
     </div>
-    <p class="calc-disc">Stima indicativa basata sulla Legge di Bilancio 2026: 50% abitazione principale (proprietari o titolari di diritto reale) e 36% altri immobili per i pagamenti 2026; 36% e 30% nel 2027; tetto 96.000 € per unità; recupero in 10 rate annuali. Conta la data del bonifico dedicato. La detrazione dipende dalla tua imposta (IRPEF) e, per redditi oltre 75.000 €, dai limiti previsti dalla legge. Non è consulenza fiscale: verifica sempre con il tuo commercialista.</p>
+    <details class="calc-disc"><summary>Come è calcolata la stima</summary><p>Stima indicativa basata sulla Legge di Bilancio 2026: 50% abitazione principale (proprietari o titolari di diritto reale) e 36% altri immobili per i pagamenti 2026; 36% e 30% nel 2027; tetto 96.000 € per unità; recupero in 10 rate annuali. Conta la data del bonifico dedicato. La detrazione dipende dalla tua imposta (IRPEF) e, per redditi oltre 75.000 €, dai limiti previsti dalla legge. Non è consulenza fiscale: verifica sempre con il tuo commercialista.</p></details>
   </div>
 </section>
 
@@ -633,7 +733,8 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
     <p class="eyebrow">Ristrutturare senza stress</p>
     <h2>I tre problemi di ogni ristrutturazione. <span class="serif">E come li gestiamo.</span></h2>
     <p class="lead">Ritardi, costi che cambiano, fornitori da coordinare: sono i dubbi di chiunque stia per ristrutturare. Il nostro metodo li affronta prima che il cantiere parta.</p>
-    <div class="ps">
+    <p class="swipe-hint m-only">Scorri <span>→</span></p>
+    <div class="ps snap">
       <div class="card">
         <p class="no">Il problema</p>
         <p class="pain">"Devo inseguire idraulico, elettricista, piastrellista e fornitori, uno per uno."</p>
@@ -697,7 +798,8 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
   <div class="wrap">
     <p class="eyebrow">Il metodo</p>
     <h2>Dalla prima telefonata alle chiavi: <span class="serif">4 passi.</span></h2>
-    <div class="steps">
+    <p class="swipe-hint m-only">Scorri i 4 passi <span>→</span></p>
+    <div class="steps snap">
       <div class="card"><div class="n">01</div><h3>Consulenza iniziale</h3><p>Ascoltiamo esigenze e desideri e valutiamo con te l'investimento orientativo.</p><div class="get">Ottieni: un primo inquadramento del progetto</div></div>
       <div class="card"><div class="n">02</div><h3>Sopralluogo tecnico <span class="free">GRATIS</span></h3><p>Rilievi in loco per analizzare fattibilità e stato dell'immobile.</p><div class="get">Ottieni: la fattibilità reale del tuo progetto</div></div>
       <div class="card"><div class="n">03</div><h3>Progetto e preventivo</h3><p>Sviluppo del layout e definizione chiara di costi e tempi, prima di iniziare.</p><div class="get">Ottieni: preventivo scritto e cronoprogramma</div></div>
@@ -834,6 +936,8 @@ else{$$('.js-finSec,.js-finFaq,.js-fin-inline').forEach(function(e){e.classList.
 var COMUNI=["Sesto San Giovanni","Cinisello Balsamo","Rho","Legnano","San Donato Milanese","San Giuliano Milanese","Rozzano","Segrate","Cologno Monzese","Pioltello","Peschiera Borromeo","Cernusco sul Naviglio","Assago","Corsico","Buccinasco","Trezzano sul Naviglio","Bollate","Novate Milanese","Bresso","Cormano","Paderno Dugnano","Arese","Garbagnate Milanese","Settimo Milanese","Opera","Abbiategrasso","Magenta","Parabiago","Melzo","Gorgonzola"];
 var chips=$('.js-chips');COMUNI.forEach(function(c){var s=document.createElement('span');s.textContent=c;chips.appendChild(s)});
 var more=document.createElement('span');more.textContent='e tutti gli altri comuni della provincia';chips.appendChild(more);
+var mb=document.createElement('button');mb.type='button';mb.className='chips-more';mb.textContent='Mostra tutti i comuni ('+COMUNI.length+')';
+mb.addEventListener('click',function(){chips.classList.add('open');mb.remove();});chips.parentNode.insertBefore(mb,chips.nextSibling);
 
 /* ---------- 2. Prova sociale (solo dati reali) ---------- */
 if(S.googleRating&&S.googleRating.score){var rb=$('.js-rating');rb.style.display='inline-flex';rb.href=S.googleRating.url||'#';rb.innerHTML='<span class="stars">★★★★★</span>'+String(S.googleRating.score).replace('.',',')+'/5 su Google · '+S.googleRating.count+' recensioni';}
@@ -876,7 +980,7 @@ function eur(n){return Math.round(n).toLocaleString('it-IT')+' €'}
 if(bonusOn){
   $$('.js-bonusbar,.js-bonus-li,.js-calcsec').forEach(function(e){e.classList.remove('hide')});
   var days=Math.ceil((new Date(BON.deadline)-Date.now())/864e5);
-  $('.js-days').textContent=days>1?'mancano '+days+' giorni':'ultimo giorno';
+  $('.js-days').innerHTML=days>1?'<span class="bb-x">mancano </span><b>'+days+' giorni</b>':'<b>ultimo giorno</b>';
   var rng=$('#c-spesa'),type='main',yrs=$('.years');
   for(var y=1;y<=10;y++){var d=document.createElement('div');d.innerHTML='<b></b>'+(2026+y);yrs.appendChild(d);}
   function calc(){
@@ -962,7 +1066,10 @@ function show(n,opt){
     // focus sulla prima domanda del passo (lettori di schermo e tastiera), senza far saltare la pagina
     var f=n===TOT?null:$('.step[data-step="'+n+'"] .q');
     if(f){f.setAttribute('tabindex','-1');try{f.focus({preventScroll:true})}catch(_){f.focus()}}
-    else if(n===TOT&&opt.user){var inp=$('#f-loc').value?$('#f-name'):$('#f-loc');setTimeout(function(){try{inp.focus({preventScroll:true})}catch(_){}} ,280);}
+    else if(n===TOT&&opt.user){
+      if(window.innerWidth>=900){var inp=$('#f-loc').value?$('#f-name'):$('#f-loc');setTimeout(function(){try{inp.focus({preventScroll:true})}catch(_){}} ,280);}
+      else{var st4=$('.step[data-step="4"]');st4.setAttribute('tabindex','-1');try{st4.focus({preventScroll:true})}catch(_){}}
+    }
   }
   // su mobile riallinea il form solo se la domanda non è ben visibile
   if(opt.scroll&&window.innerWidth<900){
@@ -1002,6 +1109,14 @@ window.addEventListener('popstate',function(e){
   }
 });
 $('.js-next').addEventListener('click',next);
+['f-loc','f-name','f-phone','f-email'].forEach(function(id,i,a){
+  var el=document.getElementById(id);
+  el.addEventListener('keydown',function(e){
+    if(e.key!=='Enter')return;e.preventDefault();
+    if(i<a.length-1){document.getElementById(a[i+1]).focus();}
+    else{el.blur();var c=$('#f-priv');if(!c.checked){c.closest('.consent').scrollIntoView({behavior:'smooth',block:'center'});}else{form.requestSubmit?form.requestSubmit():$('.js-submit').click();}}
+  });
+});
 $('.js-back').addEventListener('click',back);
 
 // avanzamento automatico solo con tocco/clic (non con le frecce della tastiera)
