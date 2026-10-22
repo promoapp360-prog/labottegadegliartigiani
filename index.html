@@ -601,24 +601,24 @@ details.calc-disc[open] summary::after{content:" –"}
           <div class="step" data-step="4" data-label="Contatti">
             <div class="field" data-f="location">
               <label for="f-loc">CAP o comune dell'immobile</label>
-              <input id="f-loc" name="location" autocomplete="postal-code" enterkeyhint="next" autocapitalize="words" placeholder="Es. 20129 oppure Sesto San Giovanni">
+              <input id="f-loc" name="location" maxlength="120" autocomplete="postal-code" enterkeyhint="next" autocapitalize="words" placeholder="Es. 20129 oppure Sesto San Giovanni">
               <p class="err">Indica CAP o comune.</p>
               <p class="hint js-lochint"></p>
             </div>
             <div class="field" data-f="name">
               <label for="f-name">Nome e cognome</label>
-              <input id="f-name" name="name" autocomplete="name" enterkeyhint="next" autocapitalize="words" autocorrect="off" placeholder="Mario Rossi">
+              <input id="f-name" name="name" maxlength="120" autocomplete="name" enterkeyhint="next" autocapitalize="words" autocorrect="off" placeholder="Mario Rossi">
               <p class="err">Inserisci il tuo nome.</p>
             </div>
             <div class="field" data-f="phone">
               <label for="f-phone">Cellulare</label>
-              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="333 123 4567">
+              <input id="f-phone" name="phone" maxlength="40" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="333 123 4567">
               <p class="hint">Lo usiamo solo per fissare il sopralluogo.</p>
               <p class="err">Inserisci un numero valido: ti chiamiamo per fissare il sopralluogo.</p>
             </div>
             <div class="field" data-f="email">
               <label for="f-email">Email <span style="font-weight:400;color:var(--text-2)">(per inviarti il preventivo)</span></label>
-              <input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" enterkeyhint="done" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="nome@email.it">
+              <input id="f-email" name="email" maxlength="254" type="email" inputmode="email" autocomplete="email" enterkeyhint="done" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="nome@email.it">
               <p class="err">Inserisci un'email valida.</p>
             </div>
             <div class="hp" aria-hidden="true"><label>Lascia vuoto<input name="company_website" tabindex="-1" autocomplete="off"></label></div>
@@ -1178,7 +1178,8 @@ form.addEventListener('submit',function(e){
   if(form.company_website.value||Date.now()-t0<3000){success(true);return}
 
   var area_st=areaStatus(loc),area_ok=area_st!=='out';
-  tracking.area_status=area_st;if(area_st!=='unknown')tracking.in_area=area_st==='in';else delete tracking.in_area;
+  // nel database: in_area true/false se la zona è certa, campo assente se da verificare (lo schema del backend accetta solo booleani)
+  delete tracking.area_status;if(area_st!=='unknown')tracking.in_area=area_st==='in';else delete tracking.in_area;
   var leadId='L'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
   var payload={propertyType:val('propertyType'),area:val('area'),intervention:val('intervention'),location:loc,startTiming:val('startTiming'),investment:val('investment'),name:name,phone:phone,email:email,privacyConsent:true};
   var btn=$('.js-submit');btn.disabled=true;btn.textContent='Invio in corso…';$('.js-sendErr').classList.remove('show');
