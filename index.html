@@ -415,9 +415,16 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
 .pcase svg{width:34px;height:34px;flex:none;color:var(--primary);background:var(--muted);border-radius:50%;padding:7px}
 .pcase p{color:var(--text-2);font-size:.92rem}
 .pnote{margin-top:14px;font-size:.92rem;color:var(--text-2)}
+.psmall{margin-top:10px;font-size:.8rem;color:var(--text-2)}
+@media(min-width:900px){.ptiles-v{grid-template-columns:1fr 1.2fr}}
+.pinc{padding:20px 22px}
+.pinc>span{display:block;font-size:.85rem;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.pinc ul{list-style:none;display:grid;gap:8px}
+.pinc li{display:flex;gap:8px;align-items:flex-start;font-weight:600;font-size:.95rem}
+.pinc svg{width:20px;height:20px;flex:none;color:var(--ok);margin-top:1px}
 .pnote a{color:var(--primary-dk);font-weight:600;white-space:nowrap}
 .loss-inline{color:#A8331F}
-@media(max-width:899px){.ptiles{grid-template-columns:1fr 1fr;gap:10px}.ptile-main{grid-column:1/-1}.ptile{padding:14px 14px}.ptile strong{font-size:1.35rem}.ptile-main strong{font-size:1.5rem}.ptile em{font-size:.8rem}}
+@media(max-width:899px){.ptiles{grid-template-columns:1fr 1fr;gap:10px}.ptile-main,.pinc{grid-column:1/-1}.pinc{padding:16px 18px}.ptile{padding:14px 14px}.ptile strong{font-size:1.35rem}.ptile-main strong{font-size:1.5rem}.ptile em{font-size:.8rem}}
 /* video */
 .vcard{display:flex;align-items:center;gap:14px;width:100%;max-width:440px;margin:4px 0 6px;padding:10px 14px 10px 10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;cursor:pointer;text-align:left;font:inherit;color:inherit;box-shadow:0 6px 18px -12px rgba(41,41,41,.35);transition:border-color .15s,transform .1s}
 .vcard:hover{border-color:var(--primary)}.vcard:active{transform:scale(.99)}
@@ -575,16 +582,16 @@ details.calc-disc[open] summary::after{content:" –"}
       <a class="rating-badge js-rating" target="_blank" rel="noopener"></a>
       <div class="loc-pill"><svg><use href="#i-pin"/></svg><span class="js-area">Milano e provincia</span></div>
       <h1 class="js-h1">Ristrutturazione appartamento a Milano, <span class="serif">chiavi in mano.</span></h1>
-      <p class="lead js-sub d-only">Progetto, preventivo, cantiere e consegna gestiti da <strong>un solo referente</strong>. Tu prendi le decisioni, al coordinamento di artigiani, forniture e pratiche pensiamo noi.</p>
-      <p class="lead m-only">Un solo referente dal progetto alla consegna. <strong>Sopralluogo gratuito.</strong></p>
+      <p class="lead js-sub d-only"><strong>Prezzo bloccato, garanzia di 10 anni e pratiche comunali incluse.</strong> Progetto, cantiere e consegna gestiti da un solo referente, in via Compagnoni dal 1982.</p>
+      <p class="lead m-only"><strong>Prezzo bloccato e garanzia 10 anni.</strong> Un solo referente, in via Compagnoni dal 1982.</p>
     </div>
     <div class="h-bot">
       <ul class="checks">
-        <li><svg><use href="#i-check"/></svg><span><strong>Sopralluogo tecnico gratuito</strong> a casa tua</span></li>
-        <li><svg><use href="#i-check"/></svg><span><strong>Preventivo scritto a prezzo bloccato</strong>: non cambia durante i lavori</span></li>
-        <li><svg><use href="#i-check"/></svg><span><strong>Un unico interlocutore</strong> dal primo incontro alla consegna</span></li>
-        <li><svg><use href="#i-check"/></svg><span><strong>Cronoprogramma scritto</strong> con data di inizio e fine lavori</span></li>
         <li><svg><use href="#i-check"/></svg><span><strong>Garanzia di 10 anni</strong> sui lavori, cantieri assicurati</span></li>
+        <li><svg><use href="#i-check"/></svg><span><strong>Prezzo bloccato</strong>: il preventivo firmato non cambia durante i lavori</span></li>
+        <li><svg><use href="#i-check"/></svg><span><strong>Pratiche comunali incluse</strong>, le seguiamo noi</span></li>
+        <li><svg><use href="#i-check"/></svg><span><strong>Date di inizio e fine scritte</strong> nel cronoprogramma</span></li>
+        <li><svg><use href="#i-check"/></svg><span><strong>Sopralluogo tecnico gratuito</strong> e un unico referente</span></li>
         <li class="js-bonus-li hide"><svg><use href="#i-check"/></svg><span><strong>Detrazione del 50% solo nel 2026</strong>: aspettando il 2027 perdi fino a <strong class="js-maxloss">13.440 €</strong> · <a href="#calcolatore" class="js-tocalc" style="color:var(--primary-dk);font-weight:600">calcola quanto perdi</a></span></li>
       </ul>
       <div class="hero-cta-desk">
@@ -605,7 +612,7 @@ details.calc-disc[open] summary::after{content:" –"}
       <form id="leadForm" novalidate>
         <div class="js-formbody">
           <h2>Richiedi il sopralluogo gratuito</h2>
-          <p class="sub">4 domande, meno di 1 minuto.<span class="d-inline"> Ti ricontattiamo <span class="js-resp">entro 24 ore lavorative</span>.</span></p>
+          <p class="sub">4 domande, meno di 1 minuto. Nessun impegno.</p>
           <div class="progress"><i class="js-bar"></i></div>
           <div class="stepinfo"><span class="js-stepn">Passo 1 di 4</span><span class="js-steplbl">Intervento</span></div>
 
@@ -720,7 +727,7 @@ details.calc-disc[open] summary::after{content:" –"}
     <ul>
       <li><svg><use href="#i-shield"/></svg>Garanzia 10 anni</li>
       <li><svg><use href="#i-lock"/></svg>Prezzo bloccato</li>
-      <li><svg><use href="#i-cal"/></svg>Date di inizio e fine scritte</li>
+      <li><svg><use href="#i-doc"/></svg>Pratiche comunali incluse</li>
       <li><svg><use href="#i-key"/></svg>A Milano dal 1982</li>
     </ul>
   </div>
@@ -771,22 +778,6 @@ details.calc-disc[open] summary::after{content:" –"}
   </div>
 </section>
 
-<!-- ============ PREZZI INDICATIVI ============ -->
-<section id="prezzi" class="prices">
-  <div class="wrap">
-    <p class="eyebrow">Prezzi chiari</p>
-    <h2>Quanto costa, <span class="serif">senza giri di parole.</span></h2>
-    <p class="lead">Prezzi indicativi dei nostri lavori a Milano, IVA esclusa. Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito: pratiche comunali incluse, e resta bloccato per tutto il cantiere.</p>
-    <div class="ptiles">
-      <div class="card ptile ptile-main"><span>Ristrutturazione completa</span><strong>500–1.000 €/mq</strong><em>materiali e IVA esclusi · in media circa 800 €/mq, in base a finiture e impianti</em></div>
-      <div class="card ptile"><span>Bagno</span><strong>da 10.000 €</strong><em>materiali e IVA esclusi · circa 12.000 € + IVA con materiali</em></div>
-      <div class="card ptile"><span>Cucina</span><strong>da 7.000 €</strong><em>materiali e IVA esclusi · circa 8.000 € + IVA con materiali</em></div>
-    </div>
-    <div class="pcase card"><svg><use href="#i-cal"/></svg><div><strong>Un cantiere recente</strong><p>Appartamento di 150 mq in zona Piazza Napoli, completato in 20 settimane.</p></div></div>
-    <p class="pnote js-pnote"><strong>Esempio:</strong> 80 mq a 800 €/mq fanno 64.000 € di lavori. Pagando nel 2026 sulla prima casa recuperi 32.000 €; dal 2027 solo 23.040 €. <strong class="loss-inline">Aspettare costa 8.960 €</strong>, e con materiali e IVA, che sono anch'essi detraibili, la differenza cresce ancora. <a href="#calcolatore">Fai il tuo calcolo ↑</a></p>
-  </div>
-</section>
-
 <!-- ============ RECENSIONI (solo con recensioni reali) ============ -->
 <section id="recensioni" class="js-revSec hide">
   <div class="wrap">
@@ -810,7 +801,7 @@ details.calc-disc[open] summary::after{content:" –"}
       <div class="trade"><span class="tn">02</span><h3>Opere murarie</h3><p>Demolizioni, tramezzi, massetti e sottofondi a regola d'arte.</p></div>
       <div class="trade"><span class="tn">03</span><h3>Impianto elettrico</h3><p>Progettato sulle tue esigenze, con la documentazione prevista.</p></div>
       <div class="trade"><span class="tn">04</span><h3>Idraulica e bagni</h3><p>Impianto idrico, scarichi e bagni completi, dalla traccia ai sanitari.</p></div>
-      <div class="trade"><span class="tn">05</span><h3>Climatizzazione</h3><p>Riscaldamento e raffrescamento integrati nel progetto.</p></div>
+      <div class="trade"><span class="tn">05</span><h3>Pratiche comunali</h3><p>CILA e SCIA seguite da noi e incluse nel preventivo.</p></div>
       <div class="trade"><span class="tn">06</span><h3>Pavimenti e rivestimenti</h3><p>Posa di ceramica, gres e parquet con finiture di precisione.</p></div>
       <div class="trade"><span class="tn">07</span><h3>Cartongesso e pittura</h3><p>Controsoffitti, nicchie, rasature e tinteggiature.</p></div>
       <div class="trade"><span class="tn">08</span><h3>Serramenti e finiture</h3><p>Porte, finestre e dettagli che fanno la differenza.</p></div>
@@ -819,6 +810,30 @@ details.calc-disc[open] summary::after{content:" –"}
       <svg><use href="#i-user"/></svg>
       <div><strong>Il tuo unico referente: Davide</strong><p>Seconda generazione della Bottega: la nostra famiglia lavora dal 1982 nello stesso ufficio su strada, in via Compagnoni. Davide pianifica le fasi, coordina gli specialisti e risponde di tutto il cantiere. Tu parli con una persona sola.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- ============ PREZZI INDICATIVI ============ -->
+<section id="prezzi" class="prices">
+  <div class="wrap">
+    <p class="eyebrow">Prezzi chiari</p>
+    <h2>Quanto costa, <span class="serif">e cosa è già compreso.</span></h2>
+    <div class="ptiles ptiles-v">
+      <div class="card ptile ptile-main"><span>Ristrutturazione completa</span><strong>da 500 €/mq</strong><em>in media circa 800 €/mq in base a finiture e impianti · materiali e IVA esclusi</em></div>
+      <div class="card pinc">
+        <span>Sempre compreso</span>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Prezzo bloccato per tutto il cantiere</li>
+          <li><svg><use href="#i-check"/></svg>Pratiche comunali (CILA, SCIA)</li>
+          <li><svg><use href="#i-check"/></svg>Cronoprogramma con date scritte</li>
+          <li><svg><use href="#i-check"/></svg>Garanzia 10 anni e cantiere assicurato</li>
+          <li><svg><use href="#i-check"/></svg>Un unico referente, Davide</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pcase card"><svg><use href="#i-cal"/></svg><div><strong>Un cantiere recente</strong><p>Appartamento di 150 mq in zona Piazza Napoli, completato in 20 settimane.</p></div></div>
+    <p class="pnote js-pnote"><strong>Esempio:</strong> 80 mq a 800 €/mq fanno 64.000 € di lavori. Pagando nel 2026 sulla prima casa recuperi 32.000 €; dal 2027 solo 23.040 €. <strong class="loss-inline">Aspettare costa 8.960 €</strong>, e con materiali e IVA, che sono anch'essi detraibili, la differenza cresce ancora. <a href="#calcolatore">Fai il tuo calcolo ↑</a></p>
+    <p class="psmall">Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito. Bagno e cucina singoli: vedi le domande frequenti.</p>
   </div>
 </section>
 
@@ -925,20 +940,6 @@ details.calc-disc[open] summary::after{content:" –"}
     <h2>Milano e tutta la <span class="serif">città metropolitana.</span></h2>
     <p class="lead">Interveniamo in tutti i quartieri di Milano e nei comuni della provincia. Indica CAP o comune nel modulo: ti confermiamo subito la disponibilità per il sopralluogo.</p>
     <div class="chips js-chips"><span class="main">Milano città</span></div>
-  </div>
-</section>
-
-<!-- ============ FINANZIAMENTO ============ -->
-<section class="js-finSec" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="card fin">
-      <div>
-        <h3>Puoi pagare a rate, <span class="serif">direttamente con noi.</span></h3>
-        <p>Nessuna banca o finanziaria esterna: il piano di pagamento lo concordiamo insieme in consulenza, in base ai lavori.</p>
-        <small>Per la detrazione conta l'anno del bonifico: le rate pagate entro il 31/12/2026 rientrano nel 50% (abitazione principale), quelle dal 2027 nell'aliquota dell'anno di pagamento.</small>
-      </div>
-      <a class="btn btn-primary js-tofrm" href="#preventivo">Parliamone al sopralluogo</a>
-    </div>
   </div>
 </section>
 
