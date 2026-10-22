@@ -50,8 +50,9 @@ window.SITE = {
   // --- Prova sociale: si attivano solo con dati REALI ---
   youtubeId: "",
   video: { src: "/video/bonus-2026.mp4", poster: "/video/bonus-2026-poster.jpg", dur: "0:30" }, // video verticale; vuoto = card nascoste                      // video di presentazione (facade, zero peso finché non si clicca)
-  googleRating: null,                 // es. { score: 4.9, count: 37, url: "https://g.page/..." }
-  reviews: [],                        // es. [{ name:"Laura M.", zone:"Città Studi", text:"...", work:"Bagno + cucina" }]
+  googleRating: { score: 5.0, count: 24, url: "https://share.google/l96s5LIMBp1Xi1i0Z" }, // dati reali dalla scheda Google (22/10/2026)
+  // estratti fedeli di recensioni Google reali (5/5), nome abbreviato
+  reviews: [{"name": "Ettore D.", "work": "Lavori in casa", "when": "3 mesi fa", "text": "Una delle mie esigenze principali erano le tempistiche e, con mia sorpresa, i lavori sono stati completati addirittura in anticipo rispetto a quanto previsto. Ho apprezzato molto il fatto di avere un unico referente che ha seguito tutto dall’inizio alla fine…"}, {"name": "Cheo C.", "work": "Ristrutturazione bagno", "when": "3 settimane fa", "text": "Richieste soddisfatte e prezzo buono (soprattutto senza incrementi a sorpresa alla fine). Dopo un anno e mezzo intervenuti con super velocità ed efficienza per un piccolo problema."}, {"name": "Andrea", "work": "Ristrutturazione completa", "when": "", "text": "Una delle rassicurazioni maggiori che ho chiesto al titolare, visti i lunghi tempi della ristrutturazione (5 mesi) era la presenza costante e la continuità giornaliera dei lavori, TUTTO RISPETTATO!"}, {"name": "Carlo O.", "work": "Bagno, cabina armadio e camera", "when": "3 mesi fa", "text": "Fin dal sopralluogo ho trovato persone competenti, disponibili e molto chiare nelle spiegazioni. I lavori sono stati eseguiti con attenzione e professionalità, rispettando le tempistiche concordate e lasciando sempre gli ambienti in ordine."}, {"name": "Daniele D.", "work": "Tutta la casa", "when": "", "text": "Davide è stato velocissimo e cordiale. Non li conoscevo ma sono stati la scelta giusta. Ho rifatto tutta casa in 2 mesi e mezzo. Organizzatissimi!"}, {"name": "Luca D.", "work": "Progettista · ufficio trasformato in bilocale", "when": "1 mese fa", "text": "Ho apprezzato la massima disponibilità e collaborazione dimostrata durante tutto il progetto, soprattutto nella fase di studio e definizione della disposizione interna degli ambienti."}],
   portfolio: []                       // es. [{ img:"/images/lavori/1.jpg", title:"Trilocale 85 mq", zone:"Porta Romana" }]
 };
 </script>
@@ -322,7 +323,18 @@ input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;bac
 .revs .card{padding:22px}
 .revs .stars{color:#E3A008;margin-bottom:8px}
 .revs p{font-size:.95rem;margin-bottom:12px}
-.revs .who{font-size:.85rem;color:var(--text-2);font-weight:600}
+.revs .who{font-size:.9rem;color:var(--text);font-weight:600}
+.revs .who span{display:block;font-weight:400;color:var(--text-2);font-size:.82rem}
+.revs .src{font-size:.75rem;color:var(--text-2);margin-top:8px}
+.revs .card{display:flex;flex-direction:column}.revs .card p{flex:1}
+.rev-sum{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:.95rem;color:var(--text-2);margin-top:-2px}
+.rev-sum .stars,.form-rating .stars,.rating-badge .stars{color:#E3A008;letter-spacing:1px}
+.rev-sum b{color:var(--text)}
+.rev-sum .rc::before{content:"· "}
+@media(max-width:600px){.rev-sum .rc{flex-basis:100%}.rev-sum .rc::before{content:""}}
+.rev-all{margin-top:20px}.rev-all a{font-weight:600;color:var(--primary-dk);display:inline-block;padding:10px 0}
+.form-rating{display:block;text-align:center;font-size:.82rem;color:var(--text-2);text-decoration:none;margin-top:10px}
+.form-rating b{color:var(--text)}
 .port figure{border-radius:16px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
 .port img{aspect-ratio:4/3;object-fit:cover;width:100%}
 .port figcaption{padding:12px 14px;font-size:.9rem;font-weight:600}
@@ -656,6 +668,7 @@ details.calc-disc[open] summary::after{content:" –"}
             <button type="submit" class="btn btn-primary js-submit hide">Prenota il sopralluogo gratuito</button>
           </div>
           <p class="reassure"><svg><use href="#i-lock"/></svg>Nessun impegno. I tuoi dati servono solo a ricontattarti.</p>
+          <a class="form-rating js-frating hide" href="#recensioni"><span class="stars">★★★★★</span> <b class="js-fscore"></b> · <span class="js-fcount"></span> recensioni su Google</a>
           <ol class="after">
             <li><b>1</b>Ti chiamiamo dallo <span class="js-phone">02 4549 3533</span></li>
             <li><b>2</b>Fissiamo il sopralluogo gratuito</li>
@@ -726,6 +739,18 @@ details.calc-disc[open] summary::after{content:" –"}
       </div>
     </div>
     <details class="calc-disc"><summary>Come è calcolata la stima</summary><p>Stima indicativa basata sulla Legge di Bilancio 2026: 50% abitazione principale (proprietari o titolari di diritto reale) e 36% altri immobili per i pagamenti 2026; 36% e 30% nel 2027; tetto 96.000 € per unità; recupero in 10 rate annuali. Conta la data del bonifico dedicato. La detrazione dipende dalla tua imposta (IRPEF) e, per redditi oltre 75.000 €, dai limiti previsti dalla legge. Non è consulenza fiscale: verifica sempre con il tuo commercialista.</p></details>
+  </div>
+</section>
+
+<!-- ============ RECENSIONI (solo con recensioni reali) ============ -->
+<section id="recensioni" class="js-revSec hide">
+  <div class="wrap">
+    <p class="eyebrow">Recensioni Google</p>
+    <h2>Le parole di chi <span class="serif">ha già ristrutturato con noi.</span></h2>
+    <p class="rev-sum js-revsum"></p>
+    <p class="swipe-hint m-only">Scorri le recensioni <span>→</span></p>
+    <div class="revs snap js-revs"></div>
+    <p class="rev-all"><a class="js-revall" target="_blank" rel="noopener">Leggi tutte le recensioni su Google →</a></p>
   </div>
 </section>
 
@@ -847,15 +872,6 @@ details.calc-disc[open] summary::after{content:" –"}
   </div>
 </section>
 
-<!-- ============ RECENSIONI (solo con recensioni reali) ============ -->
-<section class="js-revSec hide" style="padding-top:0">
-  <div class="wrap">
-    <p class="eyebrow">Dicono di noi</p>
-    <h2>Le parole di chi <span class="serif">ha già ristrutturato con noi.</span></h2>
-    <div class="revs js-revs"></div>
-  </div>
-</section>
-
 <!-- ============ ZONA ============ -->
 <section class="zone">
   <div class="wrap">
@@ -974,9 +990,16 @@ var mb=document.createElement('button');mb.type='button';mb.className='chips-mor
 mb.addEventListener('click',function(){chips.classList.add('open');mb.remove();});chips.parentNode.insertBefore(mb,chips.nextSibling);
 
 /* ---------- 2. Prova sociale (solo dati reali) ---------- */
-if(S.googleRating&&S.googleRating.score){var rb=$('.js-rating');rb.style.display='inline-flex';rb.href=S.googleRating.url||'#';rb.innerHTML='<span class="stars">★★★★★</span>'+String(S.googleRating.score).replace('.',',')+'/5 su Google · '+S.googleRating.count+' recensioni';}
+if(S.googleRating&&S.googleRating.score){var rb=$('.js-rating');rb.style.display='inline-flex';rb.href=S.googleRating.url||'#';rb.innerHTML='<span class="stars">★★★★★</span>'+String(S.googleRating.score.toFixed?S.googleRating.score.toFixed(1):S.googleRating.score).replace('.',',')+' su Google · '+S.googleRating.count+' recensioni';}
 function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
-if(S.reviews&&S.reviews.length){$('.js-revSec').classList.remove('hide');$('.js-revs').innerHTML=S.reviews.slice(0,6).map(function(r){return '<div class="card"><div class="stars">★★★★★</div><p>"'+esc(r.text)+'"</p><div class="who">'+esc(r.name)+(r.zone?' · '+esc(r.zone):'')+(r.work?' · '+esc(r.work):'')+'</div></div>'}).join('');}
+if(S.reviews&&S.reviews.length){$('.js-revSec').classList.remove('hide');$('.js-revs').innerHTML=S.reviews.slice(0,6).map(function(r){return '<div class="card"><div class="stars" aria-label="5 stelle su 5">★★★★★</div><p>“'+esc(r.text)+'”</p><div class="who">'+esc(r.name)+(r.work?'<span>'+esc(r.work)+'</span>':'')+'</div><div class="src">Recensione Google'+(r.when?' · '+esc(r.when):'')+'</div></div>'}).join('');}
+if(S.googleRating&&S.googleRating.score){
+  var sc=String(S.googleRating.score.toFixed?S.googleRating.score.toFixed(1):S.googleRating.score).replace('.',',');
+  $('.js-revsum').innerHTML='<span class="stars">★★★★★</span> <b>'+esc(sc)+' su 5</b><span class="rc">'+esc(S.googleRating.count)+' recensioni, tutte verificabili su Google</span>';
+  var ra=$('.js-revall');ra.href=S.googleRating.url||'#';ra.textContent='Leggi tutte le '+S.googleRating.count+' recensioni su Google →';
+  var fr=$('.js-frating');fr.classList.remove('hide');$('.js-fscore').textContent=sc;$('.js-fcount').textContent=S.googleRating.count;
+  ra.addEventListener('click',function(){window.dataLayer.push({event:'reviews_click'})});
+}
 if(S.portfolio&&S.portfolio.length){$('.js-portSec').classList.remove('hide');$('.js-port').innerHTML=S.portfolio.slice(0,6).map(function(p){return '<figure><img src="'+esc(p.img)+'" alt="'+esc(p.title)+'" loading="lazy" decoding="async" width="800" height="600"><figcaption>'+esc(p.title)+(p.zone?'<span>'+esc(p.zone)+'</span>':'')+'</figcaption></figure>'}).join('');}
 if(S.youtubeId){var v=$('.js-video');v.classList.remove('hide');$('.js-vthumb').src='https://i.ytimg.com/vi/'+encodeURIComponent(S.youtubeId)+'/hqdefault.jpg';
   v.addEventListener('click',function(){v.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(S.youtubeId)+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Video di presentazione"></iframe>';track('video_play');},{once:true});}
