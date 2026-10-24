@@ -819,7 +819,7 @@ details.calc-disc[open] summary::after{content:" –"}
     <p class="eyebrow">Prezzi chiari</p>
     <h2>Quanto costa, <span class="serif">e cosa è già compreso.</span></h2>
     <div class="ptiles ptiles-v">
-      <div class="card ptile ptile-main"><span>Ristrutturazione completa</span><strong>da 500 €/mq</strong><em>in media circa 800 €/mq in base a finiture e impianti · materiali e IVA esclusi</em></div>
+      <div class="card ptile ptile-main js-pmain"><span>Ristrutturazione completa</span><strong>da 500 €/mq</strong><em>in media circa 800 €/mq in base a finiture e impianti · materiali e IVA esclusi</em></div>
       <div class="card pinc">
         <span>Sempre compreso</span>
         <ul>
@@ -833,7 +833,7 @@ details.calc-disc[open] summary::after{content:" –"}
     </div>
     <div class="pcase card"><svg><use href="#i-cal"/></svg><div><strong>Un cantiere recente</strong><p>Appartamento di 150 mq in zona Piazza Napoli, completato in 20 settimane.</p></div></div>
     <p class="pnote js-pnote"><strong>Esempio:</strong> 80 mq a 800 €/mq fanno 64.000 € di lavori. Pagando nel 2026 sulla prima casa recuperi 32.000 €; dal 2027 solo 23.040 €. <strong class="loss-inline">Aspettare costa 8.960 €</strong>, e con materiali e IVA, che sono anch'essi detraibili, la differenza cresce ancora. <a href="#calcolatore">Fai il tuo calcolo ↑</a></p>
-    <p class="psmall">Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito. Bagno e cucina singoli: vedi le domande frequenti.</p>
+    <p class="psmall js-psmall">Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito. Bagno e cucina singoli: vedi le domande frequenti.</p>
   </div>
 </section>
 
@@ -1096,6 +1096,10 @@ var BON=S.bonus,bonusOn=BON&&Date.now()<new Date(BON.deadline).getTime();
 if(/bonus|detraz|agevol|50/.test(kw)&&bonusOn)key='bonus';else if(/bagn/.test(kw))key='bagno';else if(/cucin/.test(kw))key='cucina';else if(/attic/.test(kw))key='attico';
 else if(/impres|ditta|edil/.test(kw))key='impresa';else if(/complet|chiavi/.test(kw))key='completa';else if(/\bcasa\b|villa/.test(kw))key='casa';
 $('.js-h1').innerHTML=V[key].h;
+/* prezzi coerenti con il titolo: le varianti bagno/cucina mostrano il prezzo del lavoro singolo */
+var PZ={bagno:{n:'Ristrutturazione bagno',p:'da 10.000 €',e:'materiali e IVA esclusi · circa 12.000 € + IVA con i materiali'},cucina:{n:'Ristrutturazione cucina',p:'da 7.000 €',e:'materiali e IVA esclusi · circa 8.000 € + IVA con i materiali'}};
+if(PZ[key]){var pm=$('.js-pmain');if(pm){pm.querySelector('span').textContent=PZ[key].n;pm.querySelector('strong').textContent=PZ[key].p;pm.querySelector('em').textContent=PZ[key].e;}
+  var ps=$('.js-psmall');if(ps)ps.textContent='Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito. Ristrutturazione completa: da 500 €/mq, in media circa 800 €/mq.';}
 $('.js-area').textContent=comune?comune+' e provincia di Milano':'Milano e provincia';
 var variant=key+(comune?'|'+comune:'');
 
