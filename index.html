@@ -27,7 +27,7 @@ window.SITE = {
   phoneE164: "+390245493533",        // sostituire con numero di inoltro Google se si usa il call tracking
   whatsapp: "393316785065",          // WhatsApp di Davide
   email: "mail@labottegadegliartigiani.it",
-  address: "Via Giuseppe Compagnoni 8, 20129 Milano MI",
+  address: "Via Compagnoni 8 angolo Via Marcona 76, 20129 Milano MI",
   piva: "11585440966",
   company: "BIGPI S.r.l. a socio unico",
   legalSeat: "Via Gobetti 22, 20072 Pieve Emanuele (MI)",
@@ -36,7 +36,7 @@ window.SITE = {
   thankYouUrl: "/grazie.html",
   leadApi: "/api/leads",              // database lead del progetto Replit (vuoto = solo email)
   responseTime: "entro 24 ore lavorative", // DA CONFERMARE col cliente
-  installments: true,                 // pagamento a rate concordato direttamente con l'impresa (nessuna finanziaria esterna)
+  installments: true,                 // pagamento a rate tramite istituti finanziari convenzionati
   financingMax: 0,                    // importo massimo: lasciare 0 finché non confermato
   // Bonus ristrutturazioni (L. Bilancio 2026): 50% abitazione principale / 36% altri immobili sui pagamenti 2026;
   // 2027: 36% / 30%. Tetto 96.000 € per unità. Dopo la scadenza barra e messaggi bonus spariscono da soli.
@@ -86,7 +86,7 @@ gtag('set','ads_data_redaction',true);
 (function(){var o=location.origin&&location.origin!=='null'?location.origin:'';if(!o)return;
 var l=document.createElement('link');l.rel='canonical';l.href=o+'/';document.head.appendChild(l);
 var og=document.querySelector('meta[property="og:image"]');if(og)og.content=o+'/images/hero.jpg';
-var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"La Bottega degli Artigiani","legalName":"BIGPI S.r.l. a socio unico","vatID":"IT11585440966","url":"__ORIGIN__/","telephone":"+39 02 4549 3533","email":"mail@labottegadegliartigiani.it","image":"__ORIGIN__/images/hero.jpg","address":{"@type":"PostalAddress","streetAddress":"Via Giuseppe Compagnoni 8","postalCode":"20129","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"},"areaServed":[{"@type":"City","name":"Milano"},{"@type":"AdministrativeArea","name":"Città metropolitana di Milano"}],"description":"Ristrutturazioni di appartamenti chiavi in mano a Milano e provincia con un unico referente, dalla progettazione alla consegna.","sameAs":["https://labottegadegliartigiani.it/","https://www.instagram.com/labottega.degliartigiani/"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"24","bestRating":"5"}}).split('__ORIGIN__').join(o);document.head.appendChild(s);})();
+var s=document.createElement('script');s.type='application/ld+json';s.text=JSON.stringify({"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"La Bottega degli Artigiani","legalName":"BIGPI S.r.l. a socio unico","vatID":"IT11585440966","url":"__ORIGIN__/","telephone":"+39 02 4549 3533","email":"mail@labottegadegliartigiani.it","image":"__ORIGIN__/images/hero.jpg","address":{"@type":"PostalAddress","streetAddress":"Via Compagnoni 8 angolo Via Marcona 76","postalCode":"20129","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"},"areaServed":[{"@type":"City","name":"Milano"},{"@type":"AdministrativeArea","name":"Città metropolitana di Milano"}],"description":"Ristrutturazioni di appartamenti chiavi in mano a Milano e provincia con un unico referente, dalla progettazione alla consegna.","sameAs":["https://labottegadegliartigiani.it/","https://www.instagram.com/labottega.degliartigiani/"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"24","bestRating":"5"}}).split('__ORIGIN__').join(o);document.head.appendChild(s);})();
 </script>
 
 <style>
@@ -415,16 +415,9 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
 .pcase svg{width:34px;height:34px;flex:none;color:var(--primary);background:var(--muted);border-radius:50%;padding:7px}
 .pcase p{color:var(--text-2);font-size:.92rem}
 .pnote{margin-top:14px;font-size:.92rem;color:var(--text-2)}
-.psmall{margin-top:10px;font-size:.8rem;color:var(--text-2)}
-@media(min-width:900px){.ptiles-v{grid-template-columns:1fr 1.2fr}}
-.pinc{padding:20px 22px}
-.pinc>span{display:block;font-size:.85rem;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
-.pinc ul{list-style:none;display:grid;gap:8px}
-.pinc li{display:flex;gap:8px;align-items:flex-start;font-weight:600;font-size:.95rem}
-.pinc svg{width:20px;height:20px;flex:none;color:var(--ok);margin-top:1px}
 .pnote a{color:var(--primary-dk);font-weight:600;white-space:nowrap}
 .loss-inline{color:#A8331F}
-@media(max-width:899px){.ptiles{grid-template-columns:1fr 1fr;gap:10px}.ptile-main,.pinc{grid-column:1/-1}.pinc{padding:16px 18px}.ptile{padding:14px 14px}.ptile strong{font-size:1.35rem}.ptile-main strong{font-size:1.5rem}.ptile em{font-size:.8rem}}
+@media(max-width:899px){.ptiles{grid-template-columns:1fr 1fr;gap:10px}.ptile-main{grid-column:1/-1}.ptile{padding:14px 14px}.ptile strong{font-size:1.35rem}.ptile-main strong{font-size:1.5rem}.ptile em{font-size:.8rem}}
 /* video */
 .vcard{display:flex;align-items:center;gap:14px;width:100%;max-width:440px;margin:4px 0 6px;padding:10px 14px 10px 10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;cursor:pointer;text-align:left;font:inherit;color:inherit;box-shadow:0 6px 18px -12px rgba(41,41,41,.35);transition:border-color .15s,transform .1s}
 .vcard:hover{border-color:var(--primary)}.vcard:active{transform:scale(.99)}
@@ -543,7 +536,7 @@ details.calc-disc[open] summary::after{content:" –"}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto costa ristrutturare un appartamento a Milano?", "acceptedAnswer": {"@type": "Answer", "text": "Come riferimento, una ristrutturazione completa costa in genere tra 500 e 1.000 €/mq, in media circa 800 €/mq, in base a finiture e impianti. Un bagno parte da circa 10.000 € e una cucina da circa 7.000 € (circa 12.000 € e 8.000 € con i materiali). Tutti i prezzi sono IVA esclusa e, dove non indicato, materiali esclusi. Il prezzo definitivo è nel preventivo scritto e dettagliato che ricevi dopo il sopralluogo gratuito, prima di aprire il cantiere."}}, {"@type": "Question", "name": "Il sopralluogo è davvero gratuito?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, il primo sopralluogo tecnico è gratuito e senza impegno. Il preventivo viene poi definito in base alle tue esigenze, ai rilievi e alle lavorazioni da prevedere; l'eventuale attività progettuale viene chiarita prima di iniziare."}}, {"@type": "Question", "name": "Posso usare la detrazione del 50%?", "acceptedAnswer": {"@type": "Answer", "text": "Nel 2026 la detrazione è del 50% se i lavori riguardano la tua abitazione principale e ne sei proprietario o titolare di un diritto reale; negli altri casi è del 36%. Il tetto è di 96.000 € di spesa per unità e il recupero avviene in 10 anni. Dal 2027 le aliquote scendono al 36% e al 30%. Ti indichiamo come impostare i pagamenti; la verifica finale va fatta con il tuo commercialista."}}, {"@type": "Question", "name": "Conta la data dei lavori o quella del pagamento?", "acceptedAnswer": {"@type": "Answer", "text": "Per le persone fisiche conta la data del pagamento, fatto con bonifico dedicato alle ristrutturazioni. Per questo è importante definire subito progetto e preventivo: i pagamenti effettuati entro il 31 dicembre 2026 rientrano nell'aliquota del 2026."}}, {"@type": "Question", "name": "Quali sono i tempi di una ristrutturazione?", "acceptedAnswer": {"@type": "Answer", "text": "Dipendono dagli interventi, dallo stato dell'immobile e dalle eventuali pratiche. Prima di partire ricevi un cronoprogramma scritto con data di inizio e fine lavori. Un esempio recente: un appartamento di 150 mq in zona Piazza Napoli ha richiesto 20 settimane."}}, {"@type": "Question", "name": "Che garanzia date sui lavori?", "acceptedAnswer": {"@type": "Answer", "text": "I lavori eseguiti sono garantiti 10 anni e i nostri cantieri sono assicurati. Le condizioni sono indicate nel contratto."}}, {"@type": "Question", "name": "Devo occuparmi io di permessi e pratiche?", "acceptedAnswer": {"@type": "Answer", "text": "No: le pratiche comunali (come CILA o SCIA) le seguiamo noi e sono incluse nel preventivo. Durante il sopralluogo valutiamo quali servono per i tuoi lavori."}}, {"@type": "Question", "name": "Lavorate anche in provincia di Milano?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, operiamo a Milano e nei comuni della città metropolitana. Inserisci CAP o comune nel modulo e ti confermiamo la disponibilità."}}, {"@type": "Question", "name": "Posso pagare a rate?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, direttamente con noi, senza banche o finanziarie esterne: il piano di pagamento si concorda in consulenza in base ai lavori. Ricorda che per la detrazione conta l'anno del bonifico: le rate pagate entro il 31 dicembre 2026 rientrano nel 50% sull'abitazione principale."}}, {"@type": "Question", "name": "Chi rilascia le certificazioni degli impianti?", "acceptedAnswer": {"@type": "Answer", "text": "Gli interventi sugli impianti e la relativa documentazione vengono definiti in progetto. Durante il sopralluogo ti indichiamo quali dichiarazioni di conformità saranno previste per i lavori del tuo immobile."}}, {"@type": "Question", "name": "Il prezzo può aumentare durante i lavori?", "acceptedAnswer": {"@type": "Answer", "text": "No. Il totale del preventivo firmato è bloccato: niente costi aggiunti a cantiere aperto. Cambia solo se sei tu a chiedere una modifica, approvata per iscritto prima di eseguirla."}}, {"@type": "Question", "name": "Posso chiedere modifiche in corso d'opera?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, le varianti si valutano con il referente. Prima di procedere ti diamo per iscritto l'effetto delle modifiche su lavorazioni, tempi e costi: decidi tu se approvarle."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quanto costa ristrutturare un appartamento a Milano?", "acceptedAnswer": {"@type": "Answer", "text": "Come riferimento, una ristrutturazione completa costa in genere tra 500 e 1.000 €/mq, in media circa 800 €/mq, in base a finiture e impianti. Un bagno parte da circa 10.000 € e una cucina da circa 7.000 € (circa 12.000 € e 8.000 € con i materiali). Tutti i prezzi sono IVA esclusa e, dove non indicato, materiali esclusi. Il prezzo definitivo è nel preventivo scritto e dettagliato che ricevi dopo il sopralluogo gratuito, prima di aprire il cantiere."}}, {"@type": "Question", "name": "Il sopralluogo è davvero gratuito?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, il primo sopralluogo tecnico è gratuito e senza impegno. Il preventivo viene poi definito in base alle tue esigenze, ai rilievi e alle lavorazioni da prevedere; l'eventuale attività progettuale viene chiarita prima di iniziare."}}, {"@type": "Question", "name": "Posso usare la detrazione del 50%?", "acceptedAnswer": {"@type": "Answer", "text": "Nel 2026 la detrazione è del 50% se i lavori riguardano la tua abitazione principale e ne sei proprietario o titolare di un diritto reale; negli altri casi è del 36%. Il tetto è di 96.000 € di spesa per unità e il recupero avviene in 10 anni. Dal 2027 le aliquote scendono al 36% e al 30%. Ti indichiamo come impostare i pagamenti; la verifica finale va fatta con il tuo commercialista."}}, {"@type": "Question", "name": "Conta la data dei lavori o quella del pagamento?", "acceptedAnswer": {"@type": "Answer", "text": "Per le persone fisiche conta la data del pagamento, fatto con bonifico dedicato alle ristrutturazioni. Per questo è importante definire subito progetto e preventivo: i pagamenti effettuati entro il 31 dicembre 2026 rientrano nell'aliquota del 2026."}}, {"@type": "Question", "name": "Quali sono i tempi di una ristrutturazione?", "acceptedAnswer": {"@type": "Answer", "text": "Dipendono dagli interventi, dallo stato dell'immobile e dalle eventuali pratiche. Prima di partire ricevi un cronoprogramma scritto con data di inizio e fine lavori. Un esempio recente: un appartamento di 150 mq in zona Piazza Napoli ha richiesto 20 settimane."}}, {"@type": "Question", "name": "Che garanzia date sui lavori?", "acceptedAnswer": {"@type": "Answer", "text": "I lavori eseguiti sono garantiti 10 anni e i nostri cantieri sono assicurati. Le condizioni sono indicate nel contratto."}}, {"@type": "Question", "name": "Devo occuparmi io di permessi e pratiche?", "acceptedAnswer": {"@type": "Answer", "text": "No: le pratiche comunali (come CILA o SCIA) le seguiamo noi e sono incluse nel preventivo. Durante il sopralluogo valutiamo quali servono per i tuoi lavori."}}, {"@type": "Question", "name": "Lavorate anche in provincia di Milano?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, operiamo a Milano e nei comuni della città metropolitana. Inserisci CAP o comune nel modulo e ti confermiamo la disponibilità."}}, {"@type": "Question", "name": "Posso pagare a rate?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, tramite istituti finanziari con cui siamo convenzionati. Non eroghiamo direttamente finanziamenti: disponibilità, condizioni e requisiti vengono verificati con l'istituto. Per le detrazioni, verifica modalità di pagamento e documentazione con il tuo commercialista."}}, {"@type": "Question", "name": "Chi rilascia le certificazioni degli impianti?", "acceptedAnswer": {"@type": "Answer", "text": "Gli interventi sugli impianti e la relativa documentazione vengono definiti in progetto. Durante il sopralluogo ti indichiamo quali dichiarazioni di conformità saranno previste per i lavori del tuo immobile."}}, {"@type": "Question", "name": "Il prezzo può aumentare durante i lavori?", "acceptedAnswer": {"@type": "Answer", "text": "No. Il totale del preventivo firmato è bloccato: niente costi aggiunti a cantiere aperto. Cambia solo se sei tu a chiedere una modifica, approvata per iscritto prima di eseguirla."}}, {"@type": "Question", "name": "Posso chiedere modifiche in corso d'opera?", "acceptedAnswer": {"@type": "Answer", "text": "Sì, le varianti si valutano con il referente. Prima di procedere ti diamo per iscritto l'effetto delle modifiche su lavorazioni, tempi e costi: decidi tu se approvarle."}}]}</script>
 </head>
 <body>
 
@@ -562,7 +555,7 @@ details.calc-disc[open] summary::after{content:" –"}
   <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></symbol>
 </svg>
 
-<a href="#calcolatore" class="bonusbar js-bonusbar hide"><span class="bb-dot"></span><span class="bb-txt"><span class="bb-x">Bonus 50% prima casa solo fino al 31/12: </span><strong>dal 2027 perdi fino a <span class="js-maxloss">13.440 €</span><span class="bb-x"> di detrazione</span></strong> </span><span class="bb-days js-days"></span><span class="bb-cta">Calcola quanto perdi →</span></a>
+<a href="#calcolatore" class="bonusbar js-bonusbar hide"><span class="bb-dot"></span><span class="bb-txt"><span class="bb-x">Bonus 50% prima casa solo fino al 31/12: </span><strong>dal 2027 perdi <span class="js-finoa">fino a </span><span class="js-maxloss">13.440 €</span><span class="bb-x"> di detrazione</span><span class="js-ctxs"></span><span class="bb-x js-ctxl"></span></strong> </span><span class="bb-days js-days"></span><span class="bb-cta">Calcola quanto perdi →</span></a>
 <header>
   <div class="wrap hdr">
     <a href="#top" class="logo" aria-label="La Bottega degli Artigiani">LA BOTTEGA<small>DEGLI ARTIGIANI</small></a>
@@ -582,17 +575,17 @@ details.calc-disc[open] summary::after{content:" –"}
       <a class="rating-badge js-rating" target="_blank" rel="noopener"></a>
       <div class="loc-pill"><svg><use href="#i-pin"/></svg><span class="js-area">Milano e provincia</span></div>
       <h1 class="js-h1">Ristrutturazione appartamento a Milano, <span class="serif">chiavi in mano.</span></h1>
-      <p class="lead js-sub d-only"><strong>Prezzo bloccato, garanzia di 10 anni e pratiche comunali incluse.</strong> Progetto, cantiere e consegna gestiti da un solo referente, in via Compagnoni dal 1982.</p>
-      <p class="lead m-only"><strong>Prezzo bloccato e garanzia 10 anni.</strong> Un solo referente, in via Compagnoni dal 1982.</p>
+      <p class="lead js-sub js-vlead d-only">Progetto, preventivo, cantiere e consegna gestiti da <strong>un solo referente</strong>. Tu prendi le decisioni, al coordinamento di artigiani, forniture e pratiche pensiamo noi.</p>
+      <p class="lead m-only">Un solo referente dal progetto alla consegna. <strong>Sopralluogo gratuito.</strong></p>
     </div>
     <div class="h-bot">
       <ul class="checks">
+        <li><svg><use href="#i-check"/></svg><span><strong>Sopralluogo tecnico gratuito</strong> a casa tua</span></li>
+        <li><svg><use href="#i-check"/></svg><span><strong>Preventivo scritto a prezzo bloccato</strong>: non cambia durante i lavori</span></li>
+        <li><svg><use href="#i-check"/></svg><span><strong>Un unico interlocutore</strong> dal primo incontro alla consegna</span></li>
+        <li><svg><use href="#i-check"/></svg><span><strong>Cronoprogramma scritto</strong> con data di inizio e fine lavori</span></li>
         <li><svg><use href="#i-check"/></svg><span><strong>Garanzia di 10 anni</strong> sui lavori, cantieri assicurati</span></li>
-        <li><svg><use href="#i-check"/></svg><span><strong>Prezzo bloccato</strong>: il preventivo firmato non cambia durante i lavori</span></li>
-        <li><svg><use href="#i-check"/></svg><span><strong>Pratiche comunali incluse</strong>, le seguiamo noi</span></li>
-        <li><svg><use href="#i-check"/></svg><span><strong>Date di inizio e fine scritte</strong> nel cronoprogramma</span></li>
-        <li><svg><use href="#i-check"/></svg><span><strong>Sopralluogo tecnico gratuito</strong> e un unico referente</span></li>
-        <li class="js-bonus-li hide"><svg><use href="#i-check"/></svg><span><strong>Detrazione del 50% solo nel 2026</strong>: aspettando il 2027 perdi fino a <strong class="js-maxloss">13.440 €</strong> · <a href="#calcolatore" class="js-tocalc" style="color:var(--primary-dk);font-weight:600">calcola quanto perdi</a></span></li>
+        <li class="js-bonus-li hide"><svg><use href="#i-check"/></svg><span><strong>Detrazione del 50% solo nel 2026</strong>: aspettando il 2027 perdi <span class="js-finoa">fino a </span><strong class="js-maxloss">13.440 €</strong><span class="js-ctxh"></span> · <a href="#calcolatore" class="js-tocalc" style="color:var(--primary-dk);font-weight:600">calcola quanto perdi</a></span></li>
       </ul>
       <div class="hero-cta-desk">
         <a class="btn btn-ghost js-call" href="tel:+390245493533"><svg><use href="#i-phone"/></svg>Chiama <span class="js-phone">02 4549 3533</span></a>
@@ -602,8 +595,8 @@ details.calc-disc[open] summary::after{content:" –"}
         <span class="vtxt"><strong>Il bonus 2026 spiegato in 30 secondi</strong><span>Guarda il video <em class="js-vdur">0:30</em></span></span>
       </button>
       <div class="trustline">
-        <span><svg><use href="#i-pin"/></svg>In via Compagnoni, Milano, dal 1982</span>
-        <span class="js-fin-inline"><svg><use href="#i-euro"/></svg>Pagamento a rate, direttamente con noi</span>
+        <span><svg><use href="#i-pin"/></svg>Via Compagnoni 8 angolo Via Marcona 76, Milano, dal 1982</span>
+        <span class="js-fin-inline"><svg><use href="#i-euro"/></svg>Pagamento a rate tramite istituti convenzionati</span>
       </div>
     </div>
 
@@ -612,7 +605,7 @@ details.calc-disc[open] summary::after{content:" –"}
       <form id="leadForm" novalidate>
         <div class="js-formbody">
           <h2>Richiedi il sopralluogo gratuito</h2>
-          <p class="sub">4 domande, meno di 1 minuto. Nessun impegno.</p>
+          <p class="sub">4 domande, meno di 1 minuto.<span class="d-inline"> Ti ricontattiamo <span class="js-resp">entro 24 ore lavorative</span>.</span></p>
           <div class="progress"><i class="js-bar"></i></div>
           <div class="stepinfo"><span class="js-stepn">Passo 1 di 4</span><span class="js-steplbl">Intervento</span></div>
 
@@ -727,7 +720,7 @@ details.calc-disc[open] summary::after{content:" –"}
     <ul>
       <li><svg><use href="#i-shield"/></svg>Garanzia 10 anni</li>
       <li><svg><use href="#i-lock"/></svg>Prezzo bloccato</li>
-      <li><svg><use href="#i-doc"/></svg>Pratiche comunali incluse</li>
+      <li><svg><use href="#i-cal"/></svg>Date di inizio e fine scritte</li>
       <li><svg><use href="#i-key"/></svg>A Milano dal 1982</li>
     </ul>
   </div>
@@ -747,7 +740,7 @@ details.calc-disc[open] summary::after{content:" –"}
         <label class="calc-lbl" for="c-spesa">Spesa prevista per i lavori</label>
         <output class="calc-amt js-c-amt">50.000 €</output>
         <input type="range" id="c-spesa" min="10000" max="150000" step="1000" value="50000" aria-label="Spesa prevista">
-        <div class="calc-scale"><span>10.000 €</span><span>150.000 €</span></div>
+        <div class="calc-scale"><span class="js-cmin">10.000 €</span><span class="js-cmax">150.000 €</span></div>
         <p class="calc-lbl" style="margin-top:22px">L'immobile è</p>
         <div class="seg" role="radiogroup">
           <button type="button" class="on" data-t="main" role="radio" aria-checked="true">Abitazione principale</button>
@@ -778,6 +771,22 @@ details.calc-disc[open] summary::after{content:" –"}
   </div>
 </section>
 
+<!-- ============ PREZZI INDICATIVI ============ -->
+<section id="prezzi" class="prices">
+  <div class="wrap">
+    <p class="eyebrow">Prezzi chiari</p>
+    <h2 class="js-vph2">Quanto costa, <span class="serif">senza giri di parole.</span></h2>
+    <p class="lead">Prezzi indicativi dei nostri lavori a Milano, IVA esclusa. Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito: pratiche comunali incluse, e resta bloccato per tutto il cantiere.</p>
+    <div class="ptiles js-vptiles">
+      <div class="card ptile ptile-main" data-pt="completa"><span>Ristrutturazione completa</span><strong>500–1.000 €/mq</strong><em>materiali e IVA esclusi · in media circa 800 €/mq, in base a finiture e impianti</em></div>
+      <div class="card ptile" data-pt="bagno"><span>Bagno</span><strong>da 10.000 €</strong><em>materiali e IVA esclusi · circa 12.000 € + IVA con materiali</em></div>
+      <div class="card ptile" data-pt="cucina"><span>Cucina</span><strong>da 7.000 €</strong><em>materiali e IVA esclusi · circa 8.000 € + IVA con materiali</em></div>
+    </div>
+    <div class="pcase card js-vpcase"><svg><use href="#i-cal"/></svg><div><strong>Un cantiere recente</strong><p>Appartamento di 150 mq in zona Piazza Napoli, completato in 20 settimane.</p></div></div>
+    <p class="pnote js-pnote"><strong>Esempio:</strong> 80 mq a 800 €/mq fanno 64.000 € di lavori. Pagando nel 2026 sulla prima casa recuperi 32.000 €; dal 2027 solo 23.040 €. <strong class="loss-inline">Aspettare costa 8.960 €</strong>, e con materiali e IVA, che sono anch'essi detraibili, la differenza cresce ancora. <a href="#calcolatore">Fai il tuo calcolo ↑</a></p>
+  </div>
+</section>
+
 <!-- ============ RECENSIONI (solo con recensioni reali) ============ -->
 <section id="recensioni" class="js-revSec hide">
   <div class="wrap">
@@ -801,39 +810,15 @@ details.calc-disc[open] summary::after{content:" –"}
       <div class="trade"><span class="tn">02</span><h3>Opere murarie</h3><p>Demolizioni, tramezzi, massetti e sottofondi a regola d'arte.</p></div>
       <div class="trade"><span class="tn">03</span><h3>Impianto elettrico</h3><p>Progettato sulle tue esigenze, con la documentazione prevista.</p></div>
       <div class="trade"><span class="tn">04</span><h3>Idraulica e bagni</h3><p>Impianto idrico, scarichi e bagni completi, dalla traccia ai sanitari.</p></div>
-      <div class="trade"><span class="tn">05</span><h3>Pratiche comunali</h3><p>CILA e SCIA seguite da noi e incluse nel preventivo.</p></div>
+      <div class="trade"><span class="tn">05</span><h3>Climatizzazione</h3><p>Riscaldamento e raffrescamento integrati nel progetto.</p></div>
       <div class="trade"><span class="tn">06</span><h3>Pavimenti e rivestimenti</h3><p>Posa di ceramica, gres e parquet con finiture di precisione.</p></div>
       <div class="trade"><span class="tn">07</span><h3>Cartongesso e pittura</h3><p>Controsoffitti, nicchie, rasature e tinteggiature.</p></div>
       <div class="trade"><span class="tn">08</span><h3>Serramenti e finiture</h3><p>Porte, finestre e dettagli che fanno la differenza.</p></div>
     </div>
     <div class="regista card">
       <svg><use href="#i-user"/></svg>
-      <div><strong>Il tuo unico referente: Davide</strong><p>Seconda generazione della Bottega: la nostra famiglia lavora dal 1982 nello stesso ufficio su strada, in via Compagnoni. Davide pianifica le fasi, coordina gli specialisti e risponde di tutto il cantiere. Tu parli con una persona sola.</p></div>
+      <div><strong>Il tuo unico referente: Davide o un suo referente</strong><p>Seconda generazione della Bottega: la nostra famiglia lavora dal 1982 nello stesso ufficio su strada, in Via Compagnoni 8 angolo Via Marcona 76. Davide o un suo referente pianifica le fasi, coordina gli specialisti e risponde di tutto il cantiere. Tu parli con una persona sola.</p></div>
     </div>
-  </div>
-</section>
-
-<!-- ============ PREZZI INDICATIVI ============ -->
-<section id="prezzi" class="prices">
-  <div class="wrap">
-    <p class="eyebrow">Prezzi chiari</p>
-    <h2>Quanto costa, <span class="serif">e cosa è già compreso.</span></h2>
-    <div class="ptiles ptiles-v">
-      <div class="card ptile ptile-main js-pmain"><span>Ristrutturazione completa</span><strong>da 500 €/mq</strong><em>in media circa 800 €/mq in base a finiture e impianti · materiali e IVA esclusi</em></div>
-      <div class="card pinc">
-        <span>Sempre compreso</span>
-        <ul>
-          <li><svg><use href="#i-check"/></svg>Prezzo bloccato per tutto il cantiere</li>
-          <li><svg><use href="#i-check"/></svg>Pratiche comunali (CILA, SCIA)</li>
-          <li><svg><use href="#i-check"/></svg>Cronoprogramma con date scritte</li>
-          <li><svg><use href="#i-check"/></svg>Garanzia 10 anni e cantiere assicurato</li>
-          <li><svg><use href="#i-check"/></svg>Un unico referente, Davide</li>
-        </ul>
-      </div>
-    </div>
-    <div class="pcase card"><svg><use href="#i-cal"/></svg><div><strong>Un cantiere recente</strong><p>Appartamento di 150 mq in zona Piazza Napoli, completato in 20 settimane.</p></div></div>
-    <p class="pnote js-pnote"><strong>Esempio:</strong> 80 mq a 800 €/mq fanno 64.000 € di lavori. Pagando nel 2026 sulla prima casa recuperi 32.000 €; dal 2027 solo 23.040 €. <strong class="loss-inline">Aspettare costa 8.960 €</strong>, e con materiali e IVA, che sono anch'essi detraibili, la differenza cresce ancora. <a href="#calcolatore">Fai il tuo calcolo ↑</a></p>
-    <p class="psmall js-psmall">Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito. Bagno e cucina singoli: vedi le domande frequenti.</p>
   </div>
 </section>
 
@@ -937,9 +922,23 @@ details.calc-disc[open] summary::after{content:" –"}
 <section class="zone">
   <div class="wrap">
     <p class="eyebrow">Dove lavoriamo</p>
-    <h2>Milano e tutta la <span class="serif">città metropolitana.</span></h2>
-    <p class="lead">Interveniamo in tutti i quartieri di Milano e nei comuni della provincia. Indica CAP o comune nel modulo: ti confermiamo subito la disponibilità per il sopralluogo.</p>
+    <h2>Milano e provincia <span class="serif">e altre province lombarde.</span></h2>
+    <p class="lead">Interveniamo a Milano e provincia e nelle altre province indicate qui sotto. Indica CAP o comune nel modulo: ti confermiamo la disponibilità per il sopralluogo.</p>
     <div class="chips js-chips"><span class="main">Milano città</span></div>
+  </div>
+</section>
+
+<!-- ============ FINANZIAMENTO ============ -->
+<section class="js-finSec" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="card fin">
+      <div>
+        <h3>Puoi pagare a rate, <span class="serif">con istituti finanziari convenzionati.</span></h3>
+        <p>Ti aiutiamo a valutare il pagamento a rate tramite gli istituti finanziari con cui siamo convenzionati. Condizioni e requisiti vengono verificati con l'istituto.</p>
+        <small>Per le detrazioni fiscali, verifica con l'istituto e il tuo commercialista le modalità di pagamento e la documentazione necessaria.</small>
+      </div>
+      <a class="btn btn-primary js-tofrm" href="#preventivo">Parliamone al sopralluogo</a>
+    </div>
   </div>
 </section>
 
@@ -949,7 +948,7 @@ details.calc-disc[open] summary::after{content:" –"}
     <p class="eyebrow" style="text-align:center">Domande frequenti</p>
     <h2 style="text-align:center">Prima di chiamarci, <span class="serif">probabilmente ti chiedi…</span></h2>
     <div class="faq">
-      <details><summary>Quanto costa ristrutturare un appartamento a Milano?</summary><p>Come riferimento, una ristrutturazione completa costa in genere tra 500 e 1.000 €/mq, in media circa 800 €/mq, in base a finiture e impianti. Un bagno parte da circa 10.000 € e una cucina da circa 7.000 € (circa 12.000 € e 8.000 € con i materiali). Tutti i prezzi sono IVA esclusa e, dove non indicato, materiali esclusi. Il prezzo definitivo è nel preventivo scritto e dettagliato che ricevi dopo il sopralluogo gratuito, prima di aprire il cantiere.</p></details>
+      <details class="js-vfaq"><summary>Quanto costa ristrutturare un appartamento a Milano?</summary><p>Come riferimento, una ristrutturazione completa costa in genere tra 500 e 1.000 €/mq, in media circa 800 €/mq, in base a finiture e impianti. Un bagno parte da circa 10.000 € e una cucina da circa 7.000 € (circa 12.000 € e 8.000 € con i materiali). Tutti i prezzi sono IVA esclusa e, dove non indicato, materiali esclusi. Il prezzo definitivo è nel preventivo scritto e dettagliato che ricevi dopo il sopralluogo gratuito, prima di aprire il cantiere.</p></details>
       <details><summary>Il sopralluogo è davvero gratuito?</summary><p>Sì, il primo sopralluogo tecnico è gratuito e senza impegno. Il preventivo viene poi definito in base alle tue esigenze, ai rilievi e alle lavorazioni da prevedere; l'eventuale attività progettuale viene chiarita prima di iniziare.</p></details>
       <details class="js-bonusfaq"><summary>Posso usare la detrazione del 50%?</summary><p>Nel 2026 la detrazione è del 50% se i lavori riguardano la tua abitazione principale e ne sei proprietario o titolare di un diritto reale; negli altri casi è del 36%. Il tetto è di 96.000 € di spesa per unità e il recupero avviene in 10 anni. Dal 2027 le aliquote scendono al 36% e al 30%. Ti indichiamo come impostare i pagamenti; la verifica finale va fatta con il tuo commercialista.</p></details>
       <details class="js-bonusfaq"><summary>Conta la data dei lavori o quella del pagamento?</summary><p>Per le persone fisiche conta la data del pagamento, fatto con bonifico dedicato alle ristrutturazioni. Per questo è importante definire subito progetto e preventivo: i pagamenti effettuati entro il 31 dicembre 2026 rientrano nell'aliquota del 2026.</p></details>
@@ -957,7 +956,7 @@ details.calc-disc[open] summary::after{content:" –"}
       <details><summary>Che garanzia date sui lavori?</summary><p>I lavori eseguiti sono garantiti 10 anni e i nostri cantieri sono assicurati. Le condizioni sono indicate nel contratto.</p></details>
       <details><summary>Devo occuparmi io di permessi e pratiche?</summary><p>No: le pratiche comunali (come CILA o SCIA) le seguiamo noi e sono incluse nel preventivo. Durante il sopralluogo valutiamo quali servono per i tuoi lavori.</p></details>
       <details><summary>Lavorate anche in provincia di Milano?</summary><p>Sì, operiamo a Milano e nei comuni della città metropolitana. Inserisci CAP o comune nel modulo e ti confermiamo la disponibilità.</p></details>
-      <details class="js-finFaq"><summary>Posso pagare a rate?</summary><p>Sì, direttamente con noi, senza banche o finanziarie esterne: il piano di pagamento si concorda in consulenza in base ai lavori. Ricorda che per la detrazione conta l'anno del bonifico: le rate pagate entro il 31 dicembre 2026 rientrano nel 50% sull'abitazione principale.</p></details>
+      <details class="js-finFaq"><summary>Posso pagare a rate?</summary><p>Sì, tramite istituti finanziari con cui siamo convenzionati. Non eroghiamo direttamente finanziamenti: disponibilità, condizioni e requisiti vengono verificati con l'istituto. Per le detrazioni, verifica modalità di pagamento e documentazione con il tuo commercialista.</p></details>
       <details><summary>Chi rilascia le certificazioni degli impianti?</summary><p>Gli interventi sugli impianti e la relativa documentazione vengono definiti in progetto. Durante il sopralluogo ti indichiamo quali dichiarazioni di conformità saranno previste per i lavori del tuo immobile.</p></details>
       <details><summary>Il prezzo può aumentare durante i lavori?</summary><p>No. Il totale del preventivo firmato è bloccato: niente costi aggiunti a cantiere aperto. Cambia solo se sei tu a chiedere una modifica, approvata per iscritto prima di eseguirla.</p></details>
       <details><summary>Posso chiedere modifiche in corso d'opera?</summary><p>Sì, le varianti si valutano con il referente. Prima di procedere ti diamo per iscritto l'effetto delle modifiche su lavorazioni, tempi e costi: decidi tu se approvarle.</p></details>
@@ -968,7 +967,7 @@ details.calc-disc[open] summary::after{content:" –"}
 <!-- ============ CTA FINALE ============ -->
 <section class="final">
   <div class="wrap">
-    <h2>Parliamo del tuo appartamento.</h2>
+    <h2 class="js-vfinal">Parliamo del tuo appartamento.</h2>
     <p class="lead">Un sopralluogo gratuito per capire cosa si può fare, in quanto tempo e con quale investimento. Nessun impegno.</p>
     <div class="btns">
       <a class="btn btn-primary js-tofrm" href="#preventivo">Richiedi il sopralluogo gratuito</a>
@@ -982,7 +981,7 @@ details.calc-disc[open] summary::after{content:" –"}
   <div class="wrap">
     <div class="fgrid">
       <div><div class="logo" style="margin-bottom:10px">LA BOTTEGA<small>DEGLI ARTIGIANI</small></div><p>Ristrutturazioni chiavi in mano a Milano e provincia. Artigianalità, trasparenza e un unico referente dedicato.</p></div>
-      <div><h3>Contatti</h3><p><a class="js-call" href="tel:+390245493533">+39 <span class="js-phone">02 4549 3533</span></a><br><a class="js-mail" href="mailto:mail@labottegadegliartigiani.it">mail@labottegadegliartigiani.it</a><br><span class="js-addr">Via Giuseppe Compagnoni 8, 20129 Milano MI</span></p></div>
+      <div><h3>Contatti</h3><p><a class="js-call" href="tel:+390245493533">+39 <span class="js-phone">02 4549 3533</span></a><br><a class="js-mail" href="mailto:mail@labottegadegliartigiani.it">mail@labottegadegliartigiani.it</a><br><span class="js-addr">Via Compagnoni 8 angolo Via Marcona 76, 20129 Milano MI</span></p></div>
       <div><h3>Informazioni legali</h3><p><a class="js-privacy" href="/privacy.html">Informativa privacy</a><br><a href="#" class="js-cookieopen">Preferenze cookie</a></p></div>
     </div>
     <p class="copy">© <span class="js-year">2026</span> La Bottega degli Artigiani<span class="js-legal"></span>. Tutti i diritti riservati.</p>
@@ -1032,8 +1031,11 @@ if(S.whatsapp){var wa=$('.js-wa');wa.classList.remove('hide');wa.href='https://w
 if(!S.installments){$$('.js-finSec,.js-finFaq,.js-fin-inline').forEach(function(e){e.classList.add('hide')});}
 
 var COMUNI=["Sesto San Giovanni","Cinisello Balsamo","Rho","Legnano","San Donato Milanese","San Giuliano Milanese","Rozzano","Segrate","Cologno Monzese","Pioltello","Peschiera Borromeo","Cernusco sul Naviglio","Assago","Corsico","Buccinasco","Trezzano sul Naviglio","Bollate","Novate Milanese","Bresso","Cormano","Paderno Dugnano","Arese","Garbagnate Milanese","Settimo Milanese","Opera","Abbiategrasso","Magenta","Parabiago","Melzo","Gorgonzola"];
-var chips=$('.js-chips');COMUNI.forEach(function(c){var s=document.createElement('span');s.textContent=c;chips.appendChild(s)});
-var more=document.createElement('span');more.textContent='e tutti gli altri comuni della provincia';chips.appendChild(more);
+var PROVINCE=["Pavia","Lodi","Varese","Bergamo","Brescia","Monza"];
+var chips=$('.js-chips');PROVINCE.forEach(function(c){var s=document.createElement('span');s.textContent=c+' e provincia';chips.appendChild(s)});
+COMUNI.forEach(function(c){var s=document.createElement('span');s.textContent=c;chips.appendChild(s)});
+Array.from(chips.children).sort(function(a,b){return a.textContent.localeCompare(b.textContent,'it',{sensitivity:'base'})}).forEach(function(s){chips.appendChild(s)});
+var more=document.createElement('span');more.textContent='e tutti gli altri comuni della provincia di Milano';chips.appendChild(more);
 var mb=document.createElement('button');mb.type='button';mb.className='chips-more';mb.textContent='Mostra tutti i comuni ('+COMUNI.length+')';
 mb.addEventListener('click',function(){chips.classList.add('open');mb.remove();});chips.parentNode.insertBefore(mb,chips.nextSibling);
 
@@ -1096,18 +1098,58 @@ var BON=S.bonus,bonusOn=BON&&Date.now()<new Date(BON.deadline).getTime();
 if(/bonus|detraz|agevol|50/.test(kw)&&bonusOn)key='bonus';else if(/bagn/.test(kw))key='bagno';else if(/cucin/.test(kw))key='cucina';else if(/attic/.test(kw))key='attico';
 else if(/impres|ditta|edil/.test(kw))key='impresa';else if(/complet|chiavi/.test(kw))key='completa';else if(/\bcasa\b|villa/.test(kw))key='casa';
 $('.js-h1').innerHTML=V[key].h;
-/* prezzi coerenti con il titolo: le varianti bagno/cucina mostrano il prezzo del lavoro singolo */
-var PZ={bagno:{n:'Ristrutturazione bagno',p:'da 10.000 €',e:'materiali e IVA esclusi · circa 12.000 € + IVA con i materiali'},cucina:{n:'Ristrutturazione cucina',p:'da 7.000 €',e:'materiali e IVA esclusi · circa 8.000 € + IVA con i materiali'}};
-if(PZ[key]){var pm=$('.js-pmain');if(pm){pm.querySelector('span').textContent=PZ[key].n;pm.querySelector('strong').textContent=PZ[key].p;pm.querySelector('em').textContent=PZ[key].e;}
-  var ps=$('.js-psmall');if(ps)ps.textContent='Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito. Ristrutturazione completa: da 500 €/mq, in media circa 800 €/mq.';}
 $('.js-area').textContent=comune?comune+' e provincia di Milano':'Milano e provincia';
 var variant=key+(comune?'|'+comune:'');
+
+/* ---------- 3a. Contenuti dinamici per chi cerca solo bagno o cucina ----------
+   Chi arriva da un annuncio "bagno" o "cucina" vede prezzi, esempi e importi del bonus
+   proporzionati al suo lavoro, non quelli di una casa intera. */
+var CV={
+  bagno:{
+    lead:'Il tuo bagno gestito da <strong>un solo referente</strong>, dal progetto alla consegna. Tu scegli sanitari e finiture, al coordinamento di idraulico, piastrellista, forniture e pratiche pensiamo noi.',
+    ph2:'Quanto costa rifare il bagno, <span class="serif">senza giri di parole.</span>',
+    pt:'bagno', ptl:'Ristrutturazione bagno',
+    calc:15000, cmin:5000, cmax:40000, ex:'su un bagno da 15.000 € (IVA compresa)',
+    faqQ:'Quanto costa rifare il bagno?',
+    faqA:'Come riferimento, un bagno parte da circa 10.000 € (circa 12.000 € con i materiali), IVA esclusa, in base a dimensioni, impianti e finiture. Il prezzo definitivo è nel preventivo scritto e dettagliato che ricevi dopo il sopralluogo gratuito: resta bloccato per tutto il lavoro e le pratiche comunali, se servono, sono incluse.',
+    first:['Cheo C.','Carlo O.'],
+    ctxS:' sul bagno', ctxL:' da 15.000 €', ctxH:' su un bagno da 15.000 €',
+    fin:'Parliamo del tuo bagno.', title:'Ristrutturazione Bagno Milano | La Bottega degli Artigiani'
+  },
+  cucina:{
+    lead:'La tua cucina gestita da <strong>un solo referente</strong>, dal progetto alla consegna. Tu scegli finiture e disposizione, al coordinamento di impianti, rivestimenti, forniture e pratiche pensiamo noi.',
+    ph2:'Quanto costa rifare la cucina, <span class="serif">senza giri di parole.</span>',
+    pt:'cucina', ptl:'Ristrutturazione cucina',
+    calc:10000, cmin:5000, cmax:30000, ex:'su una cucina da 10.000 € (IVA compresa)',
+    faqQ:'Quanto costa rifare la cucina?',
+    faqA:'Come riferimento, una cucina parte da circa 7.000 € (circa 8.000 € con i materiali), IVA esclusa, in base a impianti, rivestimenti e finiture. Il prezzo definitivo è nel preventivo scritto e dettagliato che ricevi dopo il sopralluogo gratuito: resta bloccato per tutto il lavoro e le pratiche comunali, se servono, sono incluse.',
+    first:['Carlo O.','Cheo C.'],
+    ctxS:' sulla cucina', ctxL:' da 10.000 €', ctxH:' su una cucina da 10.000 €',
+    fin:'Parliamo della tua cucina.', title:'Ristrutturazione Cucina Milano | La Bottega degli Artigiani'
+  }
+};
+var CVk=CV[key]||null;
+if(CVk){
+  $('.js-vlead').innerHTML=CVk.lead;
+  $('.js-vph2').innerHTML=CVk.ph2;
+  var pts=$('.js-vptiles');pts.style.gridTemplateColumns='1fr';
+  [].slice.call(pts.children).forEach(function(t){
+    if(t.getAttribute('data-pt')===CVk.pt){t.classList.add('ptile-main');t.querySelector('span').textContent=CVk.ptl;}
+    else t.classList.add('hide');
+  });
+  $('.js-vpcase').classList.add('hide');
+  var fq=$('.js-vfaq');fq.querySelector('summary').textContent=CVk.faqQ;fq.querySelector('p').textContent=CVk.faqA;
+  var box=$('.js-revs');if(box){CVk.first.slice().reverse().forEach(function(n){[].slice.call(box.children).forEach(function(c){var w=c.querySelector('.who');if(w&&w.textContent.indexOf(n)===0)box.insertBefore(c,box.firstChild)})})}
+  $('.js-vfinal').textContent=CVk.fin;document.title=CVk.title;
+  document.documentElement.setAttribute('data-variant',key);
+}
 
 /* ---------- 3b. Bonus + calcolatore ---------- */
 function eur(n){return Math.round(n).toLocaleString('it-IT')+' €'}
 if(bonusOn){
   $$('.js-bonusbar,.js-bonus-li,.js-calcsec').forEach(function(e){e.classList.remove('hide')});
-  var maxLoss=BON.cap*(BON.now.main-BON.next.main);$$('.js-maxloss').forEach(function(e){e.textContent=Math.round(maxLoss).toLocaleString('it-IT')+' €'});
+  var maxLoss=(CVk?CVk.calc:BON.cap)*(BON.now.main-BON.next.main);$$('.js-maxloss').forEach(function(e){e.textContent=Math.round(maxLoss).toLocaleString('it-IT')+' €'});
+  if(CVk){$$('.js-finoa').forEach(function(e){e.textContent=''});$('.js-ctxs').textContent=CVk.ctxS;$('.js-ctxl').textContent=CVk.ctxL;$('.js-ctxh').textContent=CVk.ctxH;}
   var days=Math.ceil((new Date(BON.deadline)-Date.now())/864e5);
   var dtxt=days>1?'<b>'+days+'</b> giorni':'<b>ultimo</b> giorno';
   $('.js-days').innerHTML='<span class="bb-x">mancano </span>'+dtxt;
@@ -1130,7 +1172,9 @@ if(bonusOn){
   rng.addEventListener('input',calc);
   var calcUsed=false;rng.addEventListener('change',function(){if(!calcUsed){calcUsed=true;track('calculator_use');}});
   $$('.seg button').forEach(function(b){b.addEventListener('click',function(){type=b.dataset.t;$$('.seg button').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-checked',x===b)});calc();track('calculator_type',{type:type});})});
+  if(CVk){rng.min=CVk.cmin;rng.max=CVk.cmax;rng.step=500;rng.value=CVk.calc;$('.js-cmin').textContent=eur(CVk.cmin);$('.js-cmax').textContent=eur(CVk.cmax);}
   calc();
+  if(CVk){var exl=CVk.calc*(BON.now.main-BON.next.main);$('.js-pnote').innerHTML='<strong>Esempio:</strong> '+CVk.ex+', pagando nel 2026 sulla prima casa recuperi '+eur(CVk.calc*BON.now.main)+'; dal 2027 solo '+eur(CVk.calc*BON.next.main)+'. <strong class="loss-inline">Aspettare costa '+eur(exl)+'</strong>. <a href="#calcolatore">Fai il tuo calcolo ↑</a>';}
   $('.js-calc-cta').addEventListener('click',function(e){
     e.preventDefault();var sp=+rng.value;
     var inv=sp<=30000?'fino-30000':sp<=60000?'30000-60000':sp<=100000?'60000-100000':'oltre-100000';
@@ -1267,11 +1311,12 @@ form.addEventListener('click',function(e){
 });
 
 // verifica zona (non blocca: qualifica il lead)
-var FUORI=['roma','torino','bergamo','brescia','como','varese','lodi','pavia','novara','monza','lecco','cremona','piacenza','genova','bologna','napoli','firenze','verona','padova','venezia'];
+var FUORI=['roma','torino','como','novara','lecco','cremona','piacenza','genova','bologna','napoli','firenze','verona','padova','venezia'];
 function areaStatus(loc){        // 'in' | 'out' | 'unknown'
   var l=(loc||'').toLowerCase(),cap=(l.match(/\b\d{5}\b/)||[])[0];
-  if(cap)return /^20(0\d\d|1[0-6]\d)$/.test(cap)?'in':'out';
+  if(cap)return /^(20(0\d\d|1[0-6]\d|[89]\d\d)|21\d{3}|24\d{3}|25\d{3}|26[89]\d{2}|27\d{3})$/.test(cap)?'in':'out';
   if(/milano|\(mi\)|\bmi\b/.test(l))return 'in';
+  if(PROVINCE.some(function(c){return new RegExp('\\b'+c.toLowerCase()+'\\b').test(l)}))return 'in';
   if(COMUNI.some(function(c){return l.indexOf(c.toLowerCase())>-1}))return 'in';
   if(FUORI.some(function(c){return new RegExp('\\b'+c+'\\b').test(l)}))return 'out';
   return 'unknown';
@@ -1279,7 +1324,7 @@ function areaStatus(loc){        // 'in' | 'out' | 'unknown'
 function inArea(loc){return areaStatus(loc)!=='out';}
 $('#f-loc').addEventListener('blur',function(){
   var v=this.value.trim(),h=$('.js-lochint');if(!v){h.textContent='';return}
-  var st=areaStatus(v);h.textContent=st==='in'?'✓ Zona coperta: sopralluogo disponibile.':st==='out'?'Lavoriamo a Milano e provincia: verificheremo la disponibilità per la tua zona.':'Ti confermiamo la disponibilità quando ti chiamiamo.';h.style.color=st==='in'?'var(--ok)':'var(--text-2)';
+  var st=areaStatus(v);h.textContent=st==='in'?'✓ Zona coperta: sopralluogo disponibile.':st==='out'?'Lavoriamo nelle zone indicate nella pagina: verificheremo la disponibilità per la tua zona.':'Ti confermiamo la disponibilità quando ti chiamiamo.';h.style.color=st==='in'?'var(--ok)':'var(--text-2)';
 });
 
 function normPhone(p){var d=(p||'').replace(/[^\d+]/g,'');if(d.indexOf('+')===0)return d;if(/^00/.test(d))return '+'+d.slice(2);return '+39'+d;}
