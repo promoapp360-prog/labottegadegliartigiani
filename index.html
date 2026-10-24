@@ -414,6 +414,8 @@ footer .copy{border-top:1px solid var(--line);margin-top:26px;padding-top:16px;f
 .pcase{display:flex;gap:14px;align-items:center;margin-top:12px;padding:16px 18px}
 .pcase svg{width:34px;height:34px;flex:none;color:var(--primary);background:var(--muted);border-radius:50%;padding:7px}
 .pcase p{color:var(--text-2);font-size:.92rem}
+.pinc2{display:grid;gap:6px;margin-top:14px;font-size:.92rem;color:var(--text-2)}.pinc2 b{font-weight:600}.pinc2 .ok{color:var(--ok)}.pinc2 .no{color:var(--text)}
+@media(min-width:900px){.pinc2{grid-template-columns:1fr 1fr;gap:16px}}
 .pnote{margin-top:14px;font-size:.92rem;color:var(--text-2)}
 .pnote a{color:var(--primary-dk);font-weight:600;white-space:nowrap}
 .loss-inline{color:#A8331F}
@@ -754,8 +756,8 @@ details.calc-disc[open] summary::after{content:" –"}
     <div class="calc-head">
       <p class="eyebrow">Calcolatore detrazione</p>
       <p class="cdown"><span class="cd-ico">⏳</span><span class="js-cdays"></span></p>
-      <h2>Quanto ti restituisce lo Stato <span class="serif">se paghi entro il 31 dicembre?</span></h2>
-      <p class="lead">Il bonus ristrutturazioni al 50% per l'abitazione principale vale solo per i pagamenti fatti nel 2026. Dal 1° gennaio 2027 scende al 36%. Muovi il cursore e guarda la differenza.</p>
+      <h2>Quanto puoi recuperare sulle tasse <span class="serif">se paghi entro il 31 dicembre?</span></h2>
+      <p class="lead">Il bonus ristrutturazioni al 50% per l'abitazione principale vale solo per i pagamenti fatti nel 2026. Dal 1° gennaio 2027 scende al 36%. È una detrazione dalle tasse (IRPEF) in 10 anni, non un rimborso sul conto. Muovi il cursore e guarda la differenza.</p>
     </div>
     <div class="calc card">
       <div class="calc-in">
@@ -783,7 +785,7 @@ details.calc-disc[open] summary::after{content:" –"}
         </div>
         <div class="bars" aria-hidden="true">
           <div class="bar"><i class="b-net js-b-net"></i><i class="b-ded js-b-ded"></i></div>
-          <div class="legend"><span><i class="lg-net"></i>Costo reale <b class="js-c-net">25.000 €</b></span><span><i class="lg-ded"></i>Ti torna indietro <b class="js-c-ded2">25.000 €</b></span></div>
+          <div class="legend"><span><i class="lg-net"></i>Costo reale <b class="js-c-net">25.000 €</b></span><span><i class="lg-ded"></i>Recuperi in 10 anni <b class="js-c-ded2">25.000 €</b></span></div>
         </div>
         <div class="years" aria-hidden="true"></div>
         <a href="#preventivo" class="btn btn-primary js-calc-cta" style="width:100%;margin-top:16px">Blocca l'aliquota 2026: richiedi il sopralluogo</a>
@@ -798,12 +800,13 @@ details.calc-disc[open] summary::after{content:" –"}
   <div class="wrap">
     <p class="eyebrow">Prezzi chiari</p>
     <h2 class="js-vph2">Quanto costa, <span class="serif">senza giri di parole.</span></h2>
-    <p class="lead">Prezzi indicativi dei nostri lavori a Milano, IVA esclusa. Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito: pratiche comunali incluse, e resta bloccato per tutto il cantiere.</p>
+    <p class="lead">Prezzi indicativi dei nostri lavori a Milano. Il prezzo definitivo è quello del preventivo scritto dopo il sopralluogo gratuito, e resta bloccato per tutto il cantiere.</p>
     <div class="ptiles js-vptiles">
       <div class="card ptile ptile-main" data-pt="completa"><span>Ristrutturazione completa</span><strong>500–1.000 €/mq</strong><em>materiali e IVA esclusi · in media circa 800 €/mq, in base a finiture e impianti</em></div>
       <div class="card ptile" data-pt="bagno"><span>Bagno</span><strong>da 10.000 €</strong><em>materiali e IVA esclusi · circa 12.000 € + IVA con materiali</em></div>
       <div class="card ptile" data-pt="cucina"><span>Cucina</span><strong>da 7.000 €</strong><em>materiali e IVA esclusi · circa 8.000 € + IVA con materiali</em></div>
     </div>
+    <div class="pinc2"><p><b class="ok">✓ Compresi:</b> manodopera, smaltimento dei materiali di risulta, pratiche comunali.</p><p><b class="no">✕ Esclusi:</b> materiali e IVA, indicati a parte nel preventivo.</p></div>
     <div class="pcase card js-vpcase"><svg><use href="#i-cal"/></svg><div><strong>Un cantiere recente</strong><p>Appartamento di 150 mq in zona Piazza Napoli, completato in 20 settimane.</p></div></div>
     <p class="pnote js-pnote"><strong>Esempio:</strong> 80 mq a 800 €/mq fanno 64.000 € di lavori. Pagando nel 2026 sulla prima casa recuperi 32.000 €; dal 2027 solo 23.040 €. <strong class="loss-inline">Aspettare costa 8.960 €</strong>, e con materiali e IVA, che sono anch'essi detraibili, la differenza cresce ancora. <a href="#calcolatore">Fai il tuo calcolo ↑</a></p>
   </div>
@@ -844,36 +847,6 @@ details.calc-disc[open] summary::after{content:" –"}
   </div>
 </section>
 
-<!-- ============ PROBLEMA → SOLUZIONE ============ -->
-<section>
-  <div class="wrap">
-    <p class="eyebrow">Ristrutturare senza stress</p>
-    <h2 data-v="ph2">I tre problemi di ogni ristrutturazione. <span class="serif">E come li gestiamo.</span></h2>
-    <p class="lead" data-v="plead">Ritardi, costi che cambiano, fornitori da coordinare: sono i dubbi di chiunque stia per ristrutturare. Il nostro metodo li affronta prima che il cantiere parta.</p>
-    <p class="swipe-hint m-only">Scorri <span>→</span></p>
-    <div class="ps snap">
-      <div class="card">
-        <p class="no">Il problema</p>
-        <p class="pain">"Devo inseguire idraulico, elettricista, piastrellista e fornitori, uno per uno."</p>
-        <h3>Unico interlocutore</h3>
-        <p>Un responsabile segue il tuo progetto e coordina tutte le maestranze. Quando c'è una decisione da prendere, sai esattamente a chi rivolgerti.</p>
-      </div>
-      <div class="card">
-        <p class="no">Il problema</p>
-        <p class="pain">"Il preventivo era uno, alla fine ho speso molto di più."</p>
-        <h3>Prezzo bloccato</h3>
-        <p>Il totale del preventivo firmato non cambia durante i lavori. Cambia solo se sei tu a chiedere una modifica, e in quel caso la approvi per iscritto prima che venga eseguita.</p>
-      </div>
-      <div class="card">
-        <p class="no">Il problema</p>
-        <p class="pain" data-v="p3pain">"Non so mai a che punto sono i lavori né quando finiranno."</p>
-        <h3 data-v="p3h">Dall'inizio alla consegna</h3>
-        <p data-v="p3">Prima di partire ricevi un cronoprogramma scritto con data di inizio e fine lavori. Ti aggiorniamo sull'avanzamento fino alla consegna della casa pronta da vivere.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ CONFRONTO ============ -->
 <section id="confronto" style="padding-top:0">
   <div class="wrap">
@@ -883,7 +856,7 @@ details.calc-disc[open] summary::after{content:" –"}
       <div class="cmp-row cmp-head"><div></div><div>Gestire tutto da solo</div><div class="us">Con La Bottega</div></div>
       <div class="cmp-row"><div>Interlocutori</div><div>Più ditte e fornitori da coordinare</div><div class="us">Un solo referente</div></div>
       <div class="cmp-row"><div>Preventivo</div><div>Tanti preventivi difficili da confrontare</div><div class="us">Un preventivo scritto a prezzo bloccato</div></div>
-      <div class="cmp-row"><div>Tempi</div><div>Dipendono dall'incastro tra le ditte</div><div class="us">Cronoprogramma scritto con date di inizio e fine</div></div>
+      <div class="cmp-row"><div>Tempi</div><div>Dipendono dall'incastro tra le ditte</div><div class="us" data-v="cmpt">Cronoprogramma scritto con date di inizio e fine</div></div>
       <div class="cmp-row"><div>Smaltimento</div><div>Da organizzare e pagare a parte</div><div class="us">Demolizioni e smaltimento a carico nostro</div></div>
       <div class="cmp-row"><div>Pratiche</div><div>Da capire e seguire da solo</div><div class="us">Pratiche comunali incluse, le seguiamo noi</div></div>
       <div class="cmp-row"><div>Garanzia</div><div>Diversa per ogni ditta, spesso solo a voce</div><div class="us">10 anni sui lavori, cantieri assicurati</div></div>
@@ -898,8 +871,8 @@ details.calc-disc[open] summary::after{content:" –"}
     <img src="/images/craftsmanship.jpg" alt="Interno di appartamento ristrutturato a Milano" width="800" height="600" loading="lazy" decoding="async">
     <div>
       <p class="eyebrow">Chiavi in mano, davvero</p>
-      <h2>Un solo contratto, <span class="serif">un solo referente.</span></h2>
-      <p class="lead">Progettista, artigiani e fornitori lavorano nella stessa direzione perché c'è qualcuno che li coordina. Tu ti concentri sulle scelte che contano.</p>
+      <h2>Cosa è compreso, <span class="serif">chiavi in mano.</span></h2>
+      <p class="lead">Un solo contratto per tutto il lavoro: tu ti concentri sulle scelte che contano, al resto pensiamo noi.</p>
       <div class="incl">
         <div><svg><use href="#i-check"/></svg><span data-v="in1">Progettazione e layout</span></div>
         <div><svg><use href="#i-check"/></svg><span data-v="in2">Demolizioni e smaltimento</span></div>
@@ -1175,6 +1148,7 @@ var TXB={
   mh2:'Dalla prima telefonata al bagno finito: <span class="serif">4 passi.</span>',
   m3:'Disposizione del bagno, scelta di sanitari e finiture, costi e tempi chiari prima di iniziare.',
   m4:'Smontiamo, smaltiamo e coordiniamo tutti gli artigiani fino alla consegna.', m4g:'Ottieni: bagno pronto da usare',
+  cmpt:'In genere circa 3 settimane, con date scritte',
   fqtq:'Quanto tempo ci vuole per rifare il bagno?',
   fqta:'In genere circa 3 settimane di lavori, in base a dimensioni, impianti e finiture. Prima di partire ricevi un cronoprogramma scritto con data di inizio e fine lavori.',
   fqsq:'Chi si occupa di smontaggio e smaltimento?',
@@ -1200,6 +1174,7 @@ var TXC={
   mh2:'Dalla prima telefonata alla cucina finita: <span class="serif">4 passi.</span>',
   m3:'Disposizione della cucina, scelta delle finiture, costi e tempi chiari prima di iniziare.',
   m4:'Smontiamo, smaltiamo e coordiniamo tutti gli artigiani fino alla consegna.', m4g:'Ottieni: cucina pronta da usare',
+  cmpt:'In genere circa 3 settimane, con date scritte',
   fqtq:'Quanto tempo ci vuole per rifare la cucina?',
   fqta:'In genere circa 3 settimane di lavori, in base a impianti, rivestimenti e finiture. Prima di partire ricevi un cronoprogramma scritto con data di inizio e fine lavori.',
   fqsq:'Chi si occupa di smontaggio e smaltimento?',
