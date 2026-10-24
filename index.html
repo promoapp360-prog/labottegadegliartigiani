@@ -35,7 +35,7 @@ window.SITE = {
   leadEmail: "mail@labottegadegliartigiani.it", // dove arrivano i lead (FormSubmit: al 1° invio arriva una mail di attivazione da confermare)
   thankYouUrl: "/grazie.html",
   leadApi: "/api/leads",              // database lead del progetto Replit (vuoto = solo email)
-  responseTime: "entro 24 ore lavorative", // DA CONFERMARE col cliente
+  responseTime: "in giornata",         // confermato: richiamo in giornata
   installments: true,                 // pagamento a rate tramite istituti finanziari convenzionati
   financingMax: 0,                    // importo massimo: lasciare 0 finché non confermato
   // Bonus ristrutturazioni (L. Bilancio 2026): 50% abitazione principale / 36% altri immobili sui pagamenti 2026;
@@ -605,7 +605,7 @@ details.calc-disc[open] summary::after{content:" –"}
       <form id="leadForm" novalidate>
         <div class="js-formbody">
           <h2>Richiedi il sopralluogo gratuito</h2>
-          <p class="sub">4 domande, meno di 1 minuto.<span class="d-inline"> Ti ricontattiamo <span class="js-resp">entro 24 ore lavorative</span>.</span></p>
+          <p class="sub">4 domande, meno di 1 minuto. Ti richiamiamo <span class="js-resp">in giornata</span>.</p>
           <div class="progress"><i class="js-bar"></i></div>
           <div class="stepinfo"><span class="js-stepn">Passo 1 di 4</span><span class="js-steplbl">Intervento</span></div>
 
@@ -728,7 +728,7 @@ details.calc-disc[open] summary::after{content:" –"}
         <div class="success js-success" role="status" aria-live="polite">
           <div class="tick"><svg><use href="#i-check"/></svg></div>
           <h3>Richiesta ricevuta, grazie!</h3>
-          <p>Ti chiamiamo <span class="js-resp">entro 24 ore lavorative</span> per fissare il sopralluogo. Se preferisci, chiamaci subito.</p>
+          <p>Ti chiamiamo <span class="js-resp">in giornata</span> per fissare il sopralluogo. Se preferisci, chiamaci subito.</p>
           <a class="btn btn-primary js-call" href="tel:+390245493533"><svg><use href="#i-phone"/></svg>Chiama ora</a>
         </div>
       </form>
@@ -1491,7 +1491,7 @@ form.addEventListener('submit',function(e){
     .then(function(){
       var value=area_ok?(S.leadValue[payload.investment]||40):S.outOfAreaValue;
       window._leadSent=true;
-      ss.set('bda_lead',JSON.stringify({name:name.split(' ')[0],intervention:lab(payload.intervention),loc:loc}));
+      ss.set('bda_lead',JSON.stringify({name:name.split(' ')[0],intervention:bc?bcInfo.ambienti:lab(payload.intervention),loc:loc}));
       track('generate_lead',{value:value,currency:'EUR',lead_id:leadId,intervention:payload.intervention,investment:payload.investment,in_area:area_ok});
       var done=false;function go(){if(done)return;done=true;if(S.thankYouUrl)location.href=S.thankYouUrl;else success();}
       if(S.adsId&&S.labels.lead){
