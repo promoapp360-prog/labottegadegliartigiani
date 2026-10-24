@@ -629,6 +629,7 @@ details.calc-disc[open] summary::after{content:" –"}
               <div class="opt"><input type="radio" name="propertyType" id="pt3" value="loft"><label for="pt3">Loft</label></div>
               <div class="opt"><input type="radio" name="propertyType" id="pt4" value="altro"><label for="pt4">Altro</label></div>
             </div>
+            <div class="js-q-std">
             <p class="q">Metratura indicativa</p>
             <div class="opts c2">
               <div class="opt"><input type="radio" name="area" id="ar1" value="fino-60"><label for="ar1">Fino a 60 mq</label></div>
@@ -636,7 +637,17 @@ details.calc-disc[open] summary::after{content:" –"}
               <div class="opt"><input type="radio" name="area" id="ar3" value="100-150"><label for="ar3">100–150 mq</label></div>
               <div class="opt"><input type="radio" name="area" id="ar4" value="oltre-150"><label for="ar4">Oltre 150 mq</label></div>
             </div>
-            <p class="stepErr">Indica la metratura (anche approssimativa).</p>
+            </div>
+            <div class="js-q-bc hide">
+            <p class="q">Quali ambienti vuoi rifare?</p>
+            <div class="opts c2">
+              <div class="opt"><input type="radio" name="rooms" id="rm1" value="bagno"><label for="rm1">Bagno</label></div>
+              <div class="opt"><input type="radio" name="rooms" id="rm2" value="cucina"><label for="rm2">Cucina</label></div>
+              <div class="opt"><input type="radio" name="rooms" id="rm3" value="bagno-cucina"><label for="rm3">Bagno e cucina</label></div>
+              <div class="opt"><input type="radio" name="rooms" id="rm4" value="piu"><label for="rm4">Più bagni o altri ambienti</label></div>
+            </div>
+            </div>
+            <p class="stepErr js-err2">Indica la metratura (anche approssimativa).</p>
           </div>
 
           <!-- STEP 3 -->
@@ -649,6 +660,7 @@ details.calc-disc[open] summary::after{content:" –"}
               <div class="opt"><input type="radio" name="startTiming" id="st4" value="da-definire"><label for="st4">Da definire</label></div>
             </div>
             <p class="q">Budget orientativo</p>
+            <div class="js-q-std">
             <div class="opts c2">
               <div class="opt"><input type="radio" name="investment" id="iv-a" value="fino-30000"><label for="iv-a">Fino a 30.000 €</label></div>
               <div class="opt"><input type="radio" name="investment" id="iv-b" value="30000-60000"><label for="iv-b">30–60.000 €</label></div>
@@ -656,6 +668,16 @@ details.calc-disc[open] summary::after{content:" –"}
               <div class="opt"><input type="radio" name="investment" id="iv-d" value="oltre-100000"><label for="iv-d">Oltre 100.000 €</label></div>
             </div>
             <div class="opts"><div class="opt"><input type="radio" name="investment" id="iv-e" value="da-definire"><label for="iv-e">Non lo so ancora, ne parliamo insieme</label></div></div>
+            </div>
+            <div class="js-q-bc hide">
+            <div class="opts c2">
+              <div class="opt"><input type="radio" name="budgetBC" id="bc-a" value="bc-10"><label for="bc-a">Fino a 10.000 €</label></div>
+              <div class="opt"><input type="radio" name="budgetBC" id="bc-b" value="bc-20"><label for="bc-b">10–20.000 €</label></div>
+              <div class="opt"><input type="radio" name="budgetBC" id="bc-c" value="bc-30"><label for="bc-c">20–30.000 €</label></div>
+              <div class="opt"><input type="radio" name="budgetBC" id="bc-d" value="bc-oltre"><label for="bc-d">Oltre 30.000 €</label></div>
+            </div>
+            <div class="opts"><div class="opt"><input type="radio" name="budgetBC" id="bc-e" value="bc-nd"><label for="bc-e">Non lo so ancora, ne parliamo insieme</label></div></div>
+            </div>
             <p class="stepErr" style="margin-top:12px">Rispondi a entrambe le domande per continuare.</p>
           </div>
 
@@ -1179,6 +1201,7 @@ if(bonusOn){
     e.preventDefault();var sp=+rng.value;
     var inv=sp<=30000?'fino-30000':sp<=60000?'30000-60000':sp<=100000?'60000-100000':'oltre-100000';
     var r=document.querySelector('input[name="investment"][value="'+inv+'"]');if(r)r.checked=true;
+    var bcv=sp<=10000?'bc-10':sp<=20000?'bc-20':sp<=30000?'bc-30':'bc-oltre',rb=document.querySelector('input[name="budgetBC"][value="'+bcv+'"]');if(rb)rb.checked=true;
     window._calc={spesa:sp,tipo:type};
     track('calculator_cta',{spesa:sp,type:type});
     $('#preventivo').scrollIntoView({behavior:'smooth',block:'start'});
@@ -1228,6 +1251,18 @@ if(V[key].pre){var r=form.querySelector('input[name="intervention"][value="'+V[k
 if(V[key].pt){var r2=form.querySelector('input[name="propertyType"][value="'+V[key].pt+'"]');if(r2)r2.checked=true;}
 if(comune)$('#f-loc').value=comune;
 function val(n){var e=form.querySelector('input[name="'+n+'"]:checked');return e?e.value:''}
+/* Bagno e/o cucina: al posto della metratura della casa si chiede quali ambienti, e il budget ha fasce proporzionate.
+   Al backend arrivano sempre valori ammessi (area "da-definire", budget nella fascia standard corrispondente);
+   il dettaglio va nell'email a Davide e in tracking.calc. */
+var BCL={bagno:'Bagno',cucina:'Cucina','bagno-cucina':'Bagno e cucina',piu:'Più bagni o altri ambienti','bc-10':'Fino a 10.000 €','bc-20':'10–20.000 €','bc-30':'20–30.000 €','bc-oltre':'Oltre 30.000 €','bc-nd':'Da definire'};
+var BCMAP={'bc-10':'fino-30000','bc-20':'fino-30000','bc-30':'fino-30000','bc-oltre':'30000-60000','bc-nd':'da-definire'};
+function isBC(){return val('intervention')==='bagno-cucina'}
+function areaV(){return isBC()?(val('rooms')?'da-definire':''):val('area')}
+function invV(){return isBC()?(BCMAP[val('budgetBC')]||''):val('investment')}
+function setBC(){var bc=isBC();$$('.js-q-std',form).forEach(function(x){x.classList.toggle('hide',bc)});$$('.js-q-bc',form).forEach(function(x){x.classList.toggle('hide',!bc)});$('.js-err2').textContent=bc?'Indica quali ambienti vuoi rifare.':'Indica la metratura (anche approssimativa).';}
+if(CVk){var rmp=form.querySelector('input[name="rooms"][value="'+key+'"]');if(rmp)rmp.checked=true;}
+setBC();
+form.addEventListener('change',function(e){if(e.target.name==='intervention')setBC();});
 var advTimer=null,lastPointer=0,hasHist=!!(window.history&&history.pushState);
 function show(n,opt){
   opt=opt||{};
@@ -1256,12 +1291,12 @@ function show(n,opt){
 function valid(n){
   var ok=true;
   if(n===1)ok=!!val('intervention');
-  if(n===2)ok=!!val('area')&&!!val('propertyType');
-  if(n===3)ok=!!val('startTiming')&&!!val('investment');
+  if(n===2)ok=!!areaV()&&!!val('propertyType');
+  if(n===3)ok=!!val('startTiming')&&!!invV();
   if(!ok)$('.step[data-step="'+n+'"] .stepErr').classList.add('show');
   return ok;
 }
-function stepComplete(n){return (n===1&&!!val('intervention'))||(n===2&&!!val('area')&&!!val('propertyType'))||(n===3&&!!val('startTiming')&&!!val('investment'));}
+function stepComplete(n){return (n===1&&!!val('intervention'))||(n===2&&!!areaV()&&!!val('propertyType'))||(n===3&&!!val('startTiming')&&!!invV());}
 function next(){
   if(!valid(step))return;
   if(step<TOT){
@@ -1355,7 +1390,8 @@ form.addEventListener('submit',function(e){
   // nel database: in_area true/false se la zona è certa, campo assente se da verificare (lo schema del backend accetta solo booleani)
   delete tracking.area_status;if(area_st!=='unknown')tracking.in_area=area_st==='in';else delete tracking.in_area;
   var leadId='L'+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
-  var payload={propertyType:val('propertyType'),area:val('area'),intervention:val('intervention'),location:loc,startTiming:val('startTiming'),investment:val('investment'),name:name,phone:phone,email:email,privacyConsent:true};
+  var bc=isBC(),bcInfo=bc?{ambienti:BCL[val('rooms')]||'',budget_dettaglio:BCL[val('budgetBC')]||''}:null;
+  var payload={propertyType:val('propertyType'),area:areaV(),intervention:val('intervention'),location:loc,startTiming:val('startTiming'),investment:invV(),name:name,phone:phone,email:email,privacyConsent:true};
   var btn=$('.js-submit');btn.disabled=true;btn.textContent='Invio in corso…';$('.js-sendErr').classList.remove('show');
 
   var L={completa:'Ristrutturazione completa','bagno-cucina':'Bagno e/o cucina',altro:'Altro / da valutare',appartamento:'Appartamento',attico:'Attico',loft:'Loft','fino-60':'Fino a 60 mq','60-100':'60–100 mq','100-150':'100–150 mq','oltre-150':'Oltre 150 mq',subito:'Prima possibile','1-3-mesi':'Tra 1–3 mesi','3-6-mesi':'Tra 3–6 mesi','da-definire':'Da definire','fino-30000':'Fino a 30.000 €','30000-60000':'30–60.000 €','60000-100000':'60–100.000 €','oltre-100000':'Oltre 100.000 €'};
@@ -1363,14 +1399,14 @@ form.addEventListener('submit',function(e){
   var e164=normPhone(phone),waNum=e164.replace(/\D/g,'');
   var waMsg='Buongiorno '+name.split(' ')[0]+', la contattiamo da '+S.brand+'. Abbiamo ricevuto la sua richiesta di sopralluogo per '+lab(payload.intervention).toLowerCase()+' ('+loc+'). Quando possiamo sentirci?';
   var mail={
-    _subject:'🔔 Nuovo lead – '+lab(payload.intervention)+' – '+loc+' – '+lab(payload.investment),
+    _subject:'🔔 Nuovo lead – '+(bc?bcInfo.ambienti:lab(payload.intervention))+' – '+loc+' – '+(bc?bcInfo.budget_dettaglio:lab(payload.investment)),
     _template:'table',_captcha:'false',_replyto:email,
     'Nome':name,'Telefono':phone,
     'Chiama ora':'tel:'+e164,
     'Scrivi su WhatsApp':/^(393\d{8,9}|(?!39)\d{8,15})$/.test(waNum)?'https://wa.me/'+waNum+'?text='+encodeURIComponent(waMsg):'– (numero fisso: chiamare)',
     'Email':email,'Zona':loc,'Zona coperta':area_st==='in'?'SÌ':area_st==='out'?'NO – probabilmente fuori zona':'DA VERIFICARE (comune non riconosciuto)',
-    'Intervento':lab(payload.intervention),'Immobile':lab(payload.propertyType),'Metratura':lab(payload.area),
-    'Inizio lavori':lab(payload.startTiming),'Budget':lab(payload.investment),
+    'Intervento':lab(payload.intervention)+(bc?' – '+bcInfo.ambienti:''),'Immobile':lab(payload.propertyType),'Metratura':bc?'– (solo '+bcInfo.ambienti.toLowerCase()+')':lab(payload.area),
+    'Inizio lavori':lab(payload.startTiming),'Budget':bc?bcInfo.budget_dettaglio:lab(payload.investment),
     'Consenso privacy':'Sì','ID lead':leadId,
     'Provenienza':(tracking.gclid||tracking.gbraid||tracking.wbraid)?'Google Ads':(tracking.utm_source||'Diretto/organico'),
     'Parola cercata':tracking.utm_term||'-','Campagna':tracking.utm_campaign||'-','Variante pagina':variant,
@@ -1384,7 +1420,7 @@ form.addEventListener('submit',function(e){
     source:((tracking.gclid||tracking.gbraid||tracking.wbraid)?'google-ads':(tracking.utm_source||'diretto')).slice(0,120),
     campaign:(tracking.utm_campaign||tracking.campaignid||'').slice(0,120)||undefined,
     medium:(tracking.utm_medium||(tracking.gclid?'cpc':'')).slice(0,120)||undefined,
-    tracking:Object.assign({lead_id:leadId},tracking,{calc:window._calc||null})
+    tracking:Object.assign({lead_id:leadId},tracking,{calc:(window._calc||bcInfo)?Object.assign({},window._calc||{},bcInfo||{}):null})
   });
   var apiP=S.leadApi?fetch(S.leadApi,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(apiBody)}).then(function(r){if(!r.ok)throw new Error('API '+r.status)}):Promise.reject(new Error('no api'));
   // il lead è valido se almeno uno dei due canali (database o email) lo ha ricevuto
