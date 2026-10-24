@@ -1197,10 +1197,11 @@ if(CVk){
 }
 
 /* ---------- 3b. Bonus + calcolatore ---------- */
-function eur(n){return Math.round(n).toLocaleString('it-IT')+' €'}
+// separatore delle migliaia sempre presente (in it-IT molti browser scrivono 2100 invece di 2.100)
+function eur(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.')+' €'}
 if(bonusOn){
   $$('.js-bonusbar,.js-bonus-li,.js-calcsec').forEach(function(e){e.classList.remove('hide')});
-  var maxLoss=(CVk?CVk.calc:BON.cap)*(BON.now.main-BON.next.main);$$('.js-maxloss').forEach(function(e){e.textContent=Math.round(maxLoss).toLocaleString('it-IT')+' €'});
+  var maxLoss=(CVk?CVk.calc:BON.cap)*(BON.now.main-BON.next.main);$$('.js-maxloss').forEach(function(e){e.textContent=eur(maxLoss)});
   if(CVk){$$('.js-finoa').forEach(function(e){e.textContent=''});$('.js-ctxs').textContent=CVk.ctxS;$('.js-ctxl').textContent=CVk.ctxL;$('.js-ctxh').textContent=CVk.ctxH;}
   var days=Math.ceil((new Date(BON.deadline)-Date.now())/864e5);
   var dtxt=days>1?'<b>'+days+'</b> giorni':'<b>ultimo</b> giorno';
