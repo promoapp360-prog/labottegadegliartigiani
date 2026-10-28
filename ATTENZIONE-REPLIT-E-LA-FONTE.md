@@ -5,6 +5,6 @@ Dal 27/10/2026 la landing su Replit contiene modifiche fatte direttamente lì
 invio solo da backend Aruba senza FormSubmit). Il file index.html di questo
 repository è **più vecchio** e NON deve essere copiato su Replit.
 
-- Versione Replit verificata: index.html 122516 byte, MD5 2ff11dd8e6def273b8e23a5649decbf8
+- Versione Replit verificata: index.html 125155 byte, MD5 494ba2a72c5f0d3be6c0f68ad8d24326 (28/10: barra telefono sempre visibile + pulsante WhatsApp su computer)
 - Ogni modifica futura va fatta con richieste puntuali all'agente Replit,
   mai sostituendo il file intero.
